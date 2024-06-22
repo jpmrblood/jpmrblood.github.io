@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Netdata Postfix Alarm
 tags:
   - netdata

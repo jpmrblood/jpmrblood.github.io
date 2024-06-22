@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Tyre to Speed
 tags:
   - tyre

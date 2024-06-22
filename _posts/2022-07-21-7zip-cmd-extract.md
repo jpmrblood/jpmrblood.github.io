@@ -1,4 +1,5 @@
 ---
+layout: single
 title: 7zip extract zip from CMD
 tags:
   - 7z

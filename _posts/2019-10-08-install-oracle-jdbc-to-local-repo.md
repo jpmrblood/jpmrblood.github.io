@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Installing Oracle JDBC to Local Maven Repo
 tags:
   - oracle

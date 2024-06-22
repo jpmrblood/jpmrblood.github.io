@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Change Default Launcher in Android Studio
 tags:
   - Android

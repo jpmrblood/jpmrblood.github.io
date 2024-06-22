@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Install libOCFPCSC.so, pcscd and Omnikey 5432 driver
 tags:
   - omnikey

@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Installing MIUI 9 on Unlocked Xiaomi Mi 6
 tags:
   - Android

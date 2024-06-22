@@ -14,17 +14,19 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Wannabe Exceptional
-email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   A site to capture my tacit knowledge
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://jpmrblood.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jpmrblood
-github_username:  jpmrblood
+
+include:
+  - .htaccess
+  - _pages
 
 # Build settings
 markdown: kramdown
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+minimal_mistakes_skin    : "sunrise" 
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -32,6 +34,45 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+
+# Site Author
+author:
+  name             : "Jan Peter Alexander"
+  avatar           : "/images/bio-photo.jpg"
+  bio              : "There is nothing certain than the uncertainty itself. Capture, learn and mitigate. Welcome!"
+  location         : "Planet Earth  "
+  email            :
+  links:
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://jpmrblood.blogspot.com"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://x.com/jpmrblood"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook-square"
+      url: "https://facebook.com/jpmrblood"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/jpmrblood"
+    - label: "Tumblr"
+      icon: "fab fa-fw fa-tumblr-square"
+      url: "https://instagram.com/jpmrblood"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/jpmrblood"
+    - label: "Last.fm"
+      icon: "fab fa-fw fa-lastfm-square"
+      url: "https://last.fm/user/jpmrblood"
+    - label: "Steam"
+      icon: "fab fa-fw fa-steam-square"
+      url: "https://steamcommunity.com/id/jpmrblood"
+    - label: "YouTube"
+      icon: "fab fa-fw fa-youtube-square"
+      url: "https://www.youtube.com/user/jpmrblood"
+    - label: "Soundcloud"
+      icon: "fab fa-fw fa-soundcloud"
+      url: "https://soundcloud.com/jpmrblood"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -44,3 +85,24 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: # true
+      share: true
+      related: true

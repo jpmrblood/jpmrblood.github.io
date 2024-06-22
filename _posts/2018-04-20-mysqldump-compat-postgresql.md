@@ -1,4 +1,5 @@
 ---
+layout: single
 title: myslqdump compatible with PostgreSQL
 tags:
   - mysql

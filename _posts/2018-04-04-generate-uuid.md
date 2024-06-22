@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Generating UUID
 tags:
   - uuid

@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Delete Filename Too Long in Windows
 tags:
   - windows

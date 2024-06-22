@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Change Loading Screen 
 tags:
   - car

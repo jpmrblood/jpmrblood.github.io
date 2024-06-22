@@ -1,4 +1,5 @@
 ---
+layout: single
 title: GIT Ignore SSL Certs
 tags:
   - git

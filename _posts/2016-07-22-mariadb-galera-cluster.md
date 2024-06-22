@@ -1,4 +1,5 @@
 ---
+layout: single
 title: MariaDB + Galera Cluster + HAProxy
 tags:
  - mariadb

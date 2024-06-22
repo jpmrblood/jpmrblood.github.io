@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Use PostgreSQL in Akonadi
 tags:
   - kde

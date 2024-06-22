@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Update JVC Firmware 
 tags:
   - car

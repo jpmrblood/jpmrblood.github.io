@@ -1,4 +1,5 @@
 ---
+layout: single
 title: JAX WS Change Endpoint
 tags:
   - java

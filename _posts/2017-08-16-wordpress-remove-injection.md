@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Remove First Line Injection
 tags:
   - site

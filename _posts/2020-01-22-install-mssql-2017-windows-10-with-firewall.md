@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Installing Microsoft SQL Server 2017 on Windows 10 with Firewall
 tags:
   - mssql

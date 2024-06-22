@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Process Explorer for Windows Process Utility
 tags:
   - windows

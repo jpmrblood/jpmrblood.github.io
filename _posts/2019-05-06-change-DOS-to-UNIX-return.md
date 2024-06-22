@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Change DOS to UNIX Line Ending
 tags:
   - bash

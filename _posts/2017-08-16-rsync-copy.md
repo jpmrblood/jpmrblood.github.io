@@ -1,4 +1,5 @@
 ---
+layout: single
 title: RSYNC Copy
 tags:
   - shell

@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Installing Azure CLI
 tags:
   - ubuntu

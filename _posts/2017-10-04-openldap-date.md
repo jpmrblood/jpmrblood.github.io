@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Getting LDAP Epoch
 tags:
   - ldap

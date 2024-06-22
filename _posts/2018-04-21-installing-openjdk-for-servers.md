@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Installing OpenJDK for Servers
 tags:
   - java

@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Powershell Curl
 tags:
   - powershell

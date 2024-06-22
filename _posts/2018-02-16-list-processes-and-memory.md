@@ -1,4 +1,5 @@
 ---
+layout: single
 title: List Processes based on its memory consumption
 tags:
   - bash

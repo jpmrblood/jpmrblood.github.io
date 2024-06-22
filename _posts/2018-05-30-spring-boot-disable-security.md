@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Spring Boot Disables Security
 tags:
   - java

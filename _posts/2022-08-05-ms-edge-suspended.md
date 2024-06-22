@@ -1,4 +1,5 @@
 ---
+layout: single
 title: MS Edge on Suspended Process
 tags:
   - edge

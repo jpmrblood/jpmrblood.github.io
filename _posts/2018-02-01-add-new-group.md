@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Add New Group to Current User
 tags:
   - shell

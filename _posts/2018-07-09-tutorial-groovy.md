@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Groovy Tutorial
 tags:
   - links

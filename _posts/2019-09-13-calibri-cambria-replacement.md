@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Install Calibri and Cambdia Replacement
 tags:
   - font

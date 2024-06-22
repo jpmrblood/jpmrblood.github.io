@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Create NIC in VMBOX
 tags:
   - nic

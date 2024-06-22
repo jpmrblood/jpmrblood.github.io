@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Installing Oracle Java 10 JDK on Debian Stretch
 tags:
   - debian

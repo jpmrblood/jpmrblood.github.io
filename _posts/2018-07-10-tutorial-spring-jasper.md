@@ -1,4 +1,5 @@
 ---
+layout: single
 title: JasperReports with Spring
 tags:
   - links

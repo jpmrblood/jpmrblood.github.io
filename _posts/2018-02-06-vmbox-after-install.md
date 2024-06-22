@@ -1,4 +1,5 @@
 ---
+layout: single
 title: VirtualBox After Clone
 tags:
   - virtualbox

@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Install GLPI Project via Docker 
 tags:
   - glpi

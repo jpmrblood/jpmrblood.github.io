@@ -1,4 +1,5 @@
 ---
+layout: single
 title: npm Update Error
 tags:
   - npm

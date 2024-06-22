@@ -1,4 +1,5 @@
 ---
+layout: single
 title: ZoL GIT on Xenial
 tags:
 - linux

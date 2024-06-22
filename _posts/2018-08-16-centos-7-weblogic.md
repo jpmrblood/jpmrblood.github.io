@@ -1,4 +1,5 @@
 ---
+layout: single
 title: CentOS 7 Install Weblogic
 tags:
   - VirtualBox

@@ -1,4 +1,5 @@
 ---
+layout: single
 title: SAMBA config that works on Windows 10
 tags:
   - samba

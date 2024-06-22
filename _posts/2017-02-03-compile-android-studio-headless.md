@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Setup A Headless Server for Android Project
 tags:
   - Android

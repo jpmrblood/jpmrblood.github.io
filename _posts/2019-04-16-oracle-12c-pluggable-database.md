@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Oracle 12d Pluggable Database
 tags:
   - oracle

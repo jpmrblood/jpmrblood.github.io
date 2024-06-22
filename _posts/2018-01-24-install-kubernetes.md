@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Install Kubernetes on My PC
 tags:
   - kubernetes

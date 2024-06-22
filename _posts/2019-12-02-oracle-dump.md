@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Oracle Dump
 tags:
   - oracle

@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Whitelisting Wordpress in Apache2
 tags:
   - apache2

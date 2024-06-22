@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Java String Concatenation
 tags:
   - java

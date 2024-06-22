@@ -1,4 +1,5 @@
 ---
+layout: single
 title: SAMBA on Windows 10
 tags:
   - samba

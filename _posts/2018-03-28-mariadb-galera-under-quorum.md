@@ -1,4 +1,5 @@
 ---
+layout: single
 title: MariaDB Runs While Under Quorum
 tags:
   - mariadb

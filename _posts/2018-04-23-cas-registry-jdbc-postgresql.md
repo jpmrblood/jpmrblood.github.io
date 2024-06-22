@@ -1,4 +1,5 @@
 ---
+layout: single
 title: CAS Service Registry with PostgreSQL Backend
 tags:
   - java

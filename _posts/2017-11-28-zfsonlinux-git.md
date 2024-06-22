@@ -1,4 +1,5 @@
 ---
+layout: single
 title: ZFSonLinux GIT on Ubuntu 16.04
 tags:
   - zfs

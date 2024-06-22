@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Static Web Server in Windows
 tags:
   - links

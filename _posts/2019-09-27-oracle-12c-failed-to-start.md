@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Oracle 12d Change IP
 tags:
   - oracle

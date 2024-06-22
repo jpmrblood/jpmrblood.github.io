@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Search and Replace Trailing Space in Libreoffice
 tags:
   - libreoffice

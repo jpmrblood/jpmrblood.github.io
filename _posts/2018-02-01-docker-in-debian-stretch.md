@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Install Docker in Debian Stretch
 tags:
   - docker

@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Install GNU/Linux
 header:
   overlay_color: "#000"

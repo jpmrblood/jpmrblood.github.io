@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Crontab Helper
 tags:
   - crontab

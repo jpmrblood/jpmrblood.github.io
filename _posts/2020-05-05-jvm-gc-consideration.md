@@ -1,4 +1,5 @@
 ---
+layout: single
 title: JVM GC Consideration
 tags:
   - java

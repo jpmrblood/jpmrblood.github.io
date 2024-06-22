@@ -1,4 +1,5 @@
 ---
+layout: single
 title: dnscrypt-proxy on Android
 tags:
   - dnscrypt

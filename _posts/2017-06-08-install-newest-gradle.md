@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Install Newest Gradle
 tags:
   - gradle

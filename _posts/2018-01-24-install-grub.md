@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Install GRUB for ZFS
 tags:
   - zfs

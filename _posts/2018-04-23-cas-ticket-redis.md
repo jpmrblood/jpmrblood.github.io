@@ -1,4 +1,5 @@
 ---
+layout: single
 title: CAS Redis Ticket Storage
 tags:
   - java

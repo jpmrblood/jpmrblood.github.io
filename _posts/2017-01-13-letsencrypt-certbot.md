@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Let's Encrypt in Debian
 tags:
   - letsencrypt

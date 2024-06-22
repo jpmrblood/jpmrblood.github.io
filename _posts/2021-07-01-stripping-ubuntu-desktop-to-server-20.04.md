@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Stripping Ubuntu Desktop to Ubuntu Server
 tags:
   - ubuntu

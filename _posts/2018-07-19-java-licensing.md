@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Java Licensing
 tags:
   - links

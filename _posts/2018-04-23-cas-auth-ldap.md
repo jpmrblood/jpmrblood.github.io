@@ -1,4 +1,5 @@
 ---
+layout: single
 title: CAS with LDAP Authentication
 tags:
   - java

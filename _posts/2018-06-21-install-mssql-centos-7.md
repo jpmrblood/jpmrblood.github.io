@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Install MSSQL to CentOS 7
 tags:
   - mssql

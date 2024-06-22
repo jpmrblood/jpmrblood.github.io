@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Hive JDBC Driver
 tags:
   - hive

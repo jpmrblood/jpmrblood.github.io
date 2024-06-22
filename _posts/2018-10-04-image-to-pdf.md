@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Image to PDF
 tags:
   - pdf

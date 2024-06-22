@@ -1,4 +1,5 @@
 ---
+layout: single
 title: PostgreSQL Create User and Database
 tags:
   - postgresql

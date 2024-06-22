@@ -1,4 +1,5 @@
 ---
+layout: single
 title: HAProxy redirect root URL
 tags:
   - haproxy

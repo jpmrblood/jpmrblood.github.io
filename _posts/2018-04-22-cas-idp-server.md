@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Install CAS IdP server
 tags:
   - java

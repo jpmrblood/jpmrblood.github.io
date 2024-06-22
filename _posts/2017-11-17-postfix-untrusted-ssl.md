@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Postfix untrusted SSL
 tags:
   - postfix

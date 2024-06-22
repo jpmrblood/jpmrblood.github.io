@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Let's Encrypt in ISPConfig3
 tags:
   - letsencrypt

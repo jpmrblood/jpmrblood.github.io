@@ -1,4 +1,5 @@
 ---
+layout: single
 title: CAS Case Study, Wordpress
 tags:
   - cas

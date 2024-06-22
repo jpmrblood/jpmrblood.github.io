@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Create Java From WSDL
 tags:
   - wsdl

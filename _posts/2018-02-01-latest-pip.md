@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Install Latest PIP
 tags:
   - python

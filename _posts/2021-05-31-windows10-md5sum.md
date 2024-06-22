@@ -1,4 +1,5 @@
 ---
+layout: single
 title: Windows 10 MD5sum
 tags:
   - windows

@@ -13,7 +13,7 @@ header:
   overlay_color: "#000"
   teaser: /assets/the-most-terrifying.png
   overlay_image: /assets/the-most-terrifying.png
-excerpt: How to create Minikube with KVM  
+excerpt: How to install Hydra with PostgreSQL
 ---
 # Preparation
 

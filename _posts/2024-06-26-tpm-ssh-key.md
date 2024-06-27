@@ -12,7 +12,7 @@ header:
   overlay_color: "#000"
   teaser: /assets/2024/06/tpm2.png
   overlay_image: /assets/2024/06/tpm2.png
-excerpt: How to SSH  
+excerpt: How to SSH with key stored in TPM2 chip.
 ---
 # Setup
 

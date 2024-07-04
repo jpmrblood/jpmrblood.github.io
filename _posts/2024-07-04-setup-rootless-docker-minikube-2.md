@@ -14,7 +14,7 @@ header:
   overlay_image: /assets/2024/07/minikube.jpg
 excerpt: How to install Kubernetes
 ---
-This is a continuation from [previous post](//notes/2024/06/23/fedora-minikube-kvm.html)
+This is a continuation from [previous post](https://jpmrblood.github.io/notes/2024/06/23/fedora-minikube-kvm.html)
 
 # Running The Command
 

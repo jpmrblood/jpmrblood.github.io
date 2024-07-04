@@ -9,8 +9,8 @@ categories:
 header:
   overlay_filter: "0.5"
   overlay_color: "#000"
-  teaser: /assets/2024/06/tpm2.png
-  overlay_image: /assets/2024/06/tpm2.png
+  teaser: /assets/the-most-terrifying.png
+  overlay_image: /assets/the-most-terrifying.png
 excerpt: How to install Slack  
 ---
 # Import Key

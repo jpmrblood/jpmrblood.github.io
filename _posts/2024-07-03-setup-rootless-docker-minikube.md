@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Install Slack in Fedora
+title: Rootless Docker in Fedora
 tags:
   - fedora
   - docker
@@ -12,9 +12,9 @@ categories:
 header:
   overlay_filter: "0.5"
   overlay_color: "#000"
-  teaser: /assets/2024/06/tpm2.png
-  overlay_image: /assets/2024/06/tpm2.png
-excerpt: How to install Slack  
+  teaser: /assets/the-most-terrifying.png
+  overlay_image: /assets/the-most-terrifying.png
+excerpt: How to install Rootless Docker
 ---
 # Running The Command
 As [documentation said](https://minikube.sigs.k8s.io/docs/drivers/docker/#Rootless%20Docker):

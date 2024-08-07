@@ -12,7 +12,7 @@ header:
   overlay_color: "#000"
   teaser: /assets/the-most-terrifying.png
   overlay_image: /assets/the-most-terrifying.png
-excerpt: How to install Kubernetes
+excerpt: TLDR, works out of the box
 ---
 I got a new Razer BlackShark V2 HS 2.4. It can runs fine with Bluetooth connection. So, no complain there.
 

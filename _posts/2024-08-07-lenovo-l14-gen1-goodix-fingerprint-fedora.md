@@ -1,6 +1,6 @@
 ---
 layout: single
-title: My Kubernetes Recipee with Minikube
+title: Enabling Fingerprint in Thinkpad L14 Gen1 in Fedora
 tags:
   - fedora
   - goodix

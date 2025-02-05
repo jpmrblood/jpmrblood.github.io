@@ -15,9 +15,9 @@ header:
   overlay_image: https://raw.githubusercontent.com/distroless/.github/main/profile/distroless-logo.svg
 excerpt: The thing I know about building Distroless using APKO
 ---
-Chainguard academy releases their tooling for building their distroless system. However, for some base images, they only offer free download for the latest image. Specific versions and the FIPS version is using their paid channel.
+Chainguard Academy provides distroless images for us to use. Most of their images are provided free. However, most of the specific versions and the FIPS versions are for paid channels.
 
-Fortunately, they are kind enough for us to build one ourselves.
+Fortunately, they are kind enough for us to build one ourselves using their tool: `apko`.
 
 # Install APKO
 
@@ -72,6 +72,9 @@ docker run -v "$PWD":/work cgr.dev/chainguard/apko build python-base.yaml python
 docker load < python-base.tar
 
 ```
+
+# Next
+Chainguard Academy also provides a packaging system: `Melange`. I'm interested to build and package my app using that and integrate with `apko`.
 
 # References
 - [APKO Github page](https://github.com/chainguard-dev/apko)

@@ -13,7 +13,7 @@ header:
   overlay_filter: "0.5"
   teaser: /assets/admin-talk-300x160.jpg
   overlay_image: /assets/admin-talk-300x160.jpg
-excerpt:
+excerpt: Getting LDAP Epoch
 ---
 Run this on the server:
 ```

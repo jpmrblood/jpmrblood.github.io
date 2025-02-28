@@ -13,7 +13,6 @@ group :jekyll_plugins do
   gem "jekyll-coffeescript"
   gem "jekyll-commonmark-ghpages"
   gem "jekyll-gist"
-  gem "jekyll-github-metadata"
   gem "jekyll-paginate"
   gem "jekyll-relative-links"
   gem "jekyll-optional-front-matter"
@@ -21,6 +20,10 @@ group :jekyll_plugins do
   gem "jekyll-default-layout"
   gem "jekyll-titles-from-headings"
 end
+
+# Add this for newer Ruby
+gem "csv"
+gem "logger"
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
@@ -41,3 +44,4 @@ gem "kramdown-parser-gfm"
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 gem "webrick", "~> 1.8"
+

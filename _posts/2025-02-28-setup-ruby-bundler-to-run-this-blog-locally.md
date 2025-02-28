@@ -2,8 +2,9 @@
 layout: single
 title: Setup Ruby Bundler to Run This Blog Locally
 tags:
-  - golang
-  - upgrade
+  - ruby
+  - jekyll
+  - github
 categories:
   - notes
 header:

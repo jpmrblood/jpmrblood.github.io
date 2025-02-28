@@ -92,7 +92,7 @@ index 2a5af32..4aba967 100644
  bundler install
  ```
 
- # Running
+# Running
 
  Just run as usual
  

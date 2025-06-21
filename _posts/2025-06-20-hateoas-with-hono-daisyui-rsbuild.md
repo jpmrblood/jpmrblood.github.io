@@ -54,6 +54,7 @@ mkdir -p frontend/src frontend/public
 ```
 
 After this step, your project structure should look like this:
+
 ```
 hateoas-boilerplate/
 ├── backend/
@@ -89,6 +90,7 @@ bun i zod
 Populate the files: Copy the content from the corresponding artifacts into the files you just created.
 
 - src/index.ts -> Use the content from backend/src/index.ts
+
 ```ts
 import { Hono } from 'hono'
 import { validator } from 'hono/validator'
@@ -211,8 +213,6 @@ bun i zod
 bun i -d tailwindcss @tailwindcss/postcss daisyui
 ```
 
-Note: Don't forget the tsconfig.json for the frontend as well.
-
 Populate the files: Copy the content from the corresponding artifacts into each new file.
 
 postcss.config.mjs -> Create new content to frontend/postcss.config.mjs
@@ -302,23 +302,90 @@ type Book = z.infer<typeof bookSchema>;
 
 const app = document.getElementById('root');
 
+// --- STATE MANAGEMENT ---
+let currentPage = 'books';
+
 // Add a global function to the window object to handle button clicks
-// This is a simple way to handle events on dynamically generated HTML
 declare global {
     interface Window {
         handleAction: (href: string, method: string, bookId?: string) => void;
+        navigateTo: (page: string) => void;
     }
 }
 
+// --- RENDERING LOGIC ---
 
-async function fetchBooks() {
-  const loadingIndicator = `
-    <div class="flex justify-center items-center h-screen">
-      <span class="loading loading-lg"></span>
-    </div>
-  `;
-  if(app) app.innerHTML = loadingIndicator;
+function renderApp() {
+    if (!app) return;
 
+    const header = `
+        <div class="navbar bg-base-100 shadow-md mb-8">
+            <div class="flex-1">
+                <a class="btn btn-ghost text-xl">HATEOAS Boilerplate</a>
+            </div>
+            <div class="flex-none">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a href="#" onclick="window.navigateTo('books')" class="${currentPage === 'books' ? 'active' : ''}">Books</a></li>
+                    <li><a href="#" onclick="window.navigateTo('about')" class="${currentPage === 'about' ? 'active' : ''}">About</a></li>
+                </ul>
+            </div>
+        </div>
+    `;
+
+    const container = `<div id="page-content" class="container mx-auto p-4 max-w-4xl"></div>`;
+    app.innerHTML = header + container;
+
+    const pageContent = document.getElementById('page-content');
+    if (currentPage === 'books') {
+        renderBooksPage(pageContent);
+    } else if (currentPage === 'about') {
+        renderAboutPage(pageContent);
+    }
+}
+
+function renderBooksPage(container: HTMLElement | null) {
+    if (!container) return;
+    
+    const loadingIndicator = `
+      <div class="flex justify-center items-center h-64">
+        <span class="loading loading-lg"></span>
+      </div>
+    `;
+    container.innerHTML = loadingIndicator;
+
+    fetchBooks(container);
+}
+
+function renderAboutPage(container: HTMLElement | null) {
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="card bg-base-100 shadow-xl">
+            <div class="card-body">
+                <h1 class="card-title text-3xl">About This Application</h1>
+                <p class="mt-4">This is a boilerplate demonstration of a HATEOAS-driven API and a frontend that consumes it.</p>
+                <div class="divider"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <h3 class="font-semibold text-lg">Backend</h3>
+                        <p>Hono on Bun</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">Frontend</h3>
+                        <p>RSBuild with DaisyUI & TypeScript</p>
+                    </div>
+                     <div>
+                        <h3 class="font-semibold text-lg">Version</h3>
+                        <p>1.0.0</p>
+                    </div>
+                </div>
+                 <p class="mt-4 text-sm text-base-content/70">Timestamp of page load: ${new Date().toLocaleString()}</p>
+            </div>
+        </div>
+    `;
+}
+
+async function fetchBooks(container: HTMLElement) {
   try {
     const response = await fetch('/api/books');
     if (!response.ok) {
@@ -329,16 +396,14 @@ async function fetchBooks() {
     // Validate the response with Zod
     const validatedData = z.object({ _data: z.array(bookSchema) }).parse(data);
 
-    renderBooks(validatedData._data);
+    renderBooks(validatedData._data, container);
   } catch (error) {
     console.error("Failed to fetch books:", error);
-    if(app) app.innerHTML = `<div class="alert alert-error">Failed to load books. Check the console for details.</div>`;
+    if(container) container.innerHTML = `<div class="alert alert-error">Failed to load books. Check the console for details.</div>`;
   }
 }
 
-function renderBooks(books: Book[]) {
-  if (!app) return;
-
+function renderBooks(books: Book[], container: HTMLElement) {
   const bookList = books.map(book => `
     <div class="card w-full bg-base-100 shadow-xl mb-4">
       <div class="card-body">
@@ -358,39 +423,40 @@ function renderBooks(books: Book[]) {
     </div>
   `).join('');
 
-  app.innerHTML = `
-    <div class="container mx-auto p-4 max-w-4xl">
-      <h1 class="text-4xl font-bold mb-6 text-center">Book Catalog</h1>
-      <div>
-        ${bookList}
-      </div>
+  container.innerHTML = `
+    <h1 class="text-4xl font-bold mb-6 text-center">Book Catalog</h1>
+    <div>
+      ${bookList}
     </div>
   `;
 }
 
-// Handler for HATEOAS actions
+// --- NAVIGATION AND ACTIONS ---
+
+window.navigateTo = (page: string) => {
+    currentPage = page;
+    renderApp();
+};
+
 window.handleAction = async (href: string, method: string, bookId?: string) => {
   if (method.toUpperCase() === 'GET') {
       alert(`Navigating to ${href}`);
-      // In a real app, you would fetch the single item and display it
   } else if (method.toUpperCase() === 'DELETE') {
       if (confirm(`Are you sure you want to delete this item?`)) {
           alert(`Simulating DELETE on ${href}`);
-          // In a real app:
-          // await fetch(href, { method: 'DELETE' });
-          // fetchBooks(); // Refresh the list
       }
   } else {
     alert(`Action: ${method} on ${href}`);
   }
 };
 
-// Initial fetch
-fetchBooks();
+// --- INITIAL LOAD ---
+renderApp();
+
 ```
 
-
 ## Step 4: Run the Application
+
 Now it's time to bring everything online. You will need two separate terminal windows for this.
 
 ### Start the Backend Server:
@@ -433,71 +499,214 @@ Each card will have buttons like self, edit, and delete. Clicking these will tri
 
 Congratulations! You have successfully set up the fullstack HATEOAS boilerplate.
 
-## Step 6: Dockerize Your App
+## Step 5: Making for Production
+
+To make for production, we need to server the HTML compiled in frontend thru the backend. For this, I created a patch script that will create `server.ts` that basically a patched `index.ts` that scans `public` directory.
+
+`scripts/create-server.ts`
+
+```ts
+import { readFileSync, writeFileSync, copyFileSync, existsSync } from 'fs'
+
+const inputPath = 'src/index.ts'
+const outputPath = 'src/server.ts'
+
+// Check if server.ts already exists and is patched
+if (existsSync(outputPath)) {
+  const serverContent = readFileSync(outputPath, 'utf-8')
+  if (serverContent.includes('serveStatic({ root: "./dist" })')) {
+    console.log('✅ server.ts already patched. Skipping.')
+    process.exit(0)
+  }
+}
+
+console.log('📦 Patching server.ts for production...')
+
+// Read original source (dev version)
+let content = readFileSync(inputPath, 'utf-8')
+
+// Backup the original (optional)
+// copyFileSync(inputPath, `${outputPath}.bak`)
+
+// === STEP 1: Insert static import after `import { cors } ...`
+if (!content.includes(`import { cors } from 'hono/cors'`)) {
+  console.warn(`⚠️ Could not find CORS import in ${inputPath}. Aborting.`)
+  process.exit(1)
+}
+
+content = content.replace(
+  /import { cors } from 'hono\/cors'/,
+  `$&\nimport { serveStatic } from 'hono/bun'`
+)
+
+// === STEP 2: Inject static serving BEFORE the CORS middleware
+const staticInjection = `app.use('/*', serveStatic({ root: './public' }));\napp.use('/', serveStatic({ path: './public/index.html' }));`
+if (!content.includes(`app.use('/api/*', cors({`)) {
+  console.warn(`⚠️ Could not find the '/api/*' cors middleware block. Aborting.`)
+  process.exit(1)
+}
+
+content = content.replace(
+  /app\.use\('\/api\/\*', cors\(\{/,
+  `${staticInjection}\n$&`
+)
+
+// === STEP 3: Replace the full cors(...) block with production version
+const corsBlockRegex = /app\.use\('\/api\/\*', cors\(\{[\s\S]*?\}\)\)/
+
+if (!corsBlockRegex.test(content)) {
+  console.warn('⚠️ Could not find full CORS middleware block to replace. Aborting.')
+  process.exit(1)
+}
+
+content = content.replace(
+  corsBlockRegex,
+  `app.use("/api/*", async (c, next) => { return next() });\napp.use("/*", serveStatic({ root: "./public" }));\napp.notFound(serveStatic({ path: "./public/index.html" }));`
+)
+
+// Write final output
+writeFileSync(outputPath, content)
+console.log('✅ server.ts has been patched and written.')
+
+```
+
+
+I converted the script from Shell script because Bun script may runs in multiple platforms. This is a boilerplate anyway.
+
+So the new directory structure:
+```
+hateoas-boilerplate/
+├── backend/
+│   └── src/
+|   └── scripts/
+└── frontend/
+    ├── public/
+    └── src/
+```
+
+To make things easier, added little commands on the `package.json`.
+
+### `backend/package.json
+
+```json
+{
+  "name": "backend",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "build:dev": "bun build src/index.ts --compile --outfile=dist/app",
+    "build:prod": "bun build src/server.ts --production --target=bun --outfile=dist/app.js",
+    "patch:server": "rm -f src/server.ts && bun scripts/create-server.ts",
+    "build":"bun patch:server && bun build:prod",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "hono": "^4.8.1",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
+```
+
+### `frontend/package.json
+
+```json
+{
+  "name": "rsbuild-vanilla-ts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "check": "biome check --write",
+    "dev": "rsbuild dev --open",
+    "format": "biome format --write",
+    "preview": "rsbuild preview",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@rsbuild/core": "^1.3.22",
+    "@tailwindcss/postcss": "^4.1.10",
+    "daisyui": "^5.0.43",
+    "tailwindcss": "^4.1.10",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "zod": "^3.25.67"
+  },
+  "trustedDependencies": [
+    "@biomejs/biome",
+    "@tailwindcss/oxide",
+    "core-js"
+  ]
+}
+```
+
+### package.json
+
+```json
+{
+  "name": "hateoas-app",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "all": "bun --filter './*end'",
+    "dev": "bun all dev",
+    "dev:backend": "cd backend && bun dev",
+    "dev:frontend": "cd frontend && bun dev",
+    "build":"bun all build && cp -a backend/dist . && cp -a frontend/dist dist/public",
+    "clean":"bun all clean && rm -rf dist"
+  }
+}
+```
+
+## Step 7: Dockerize Your App
 
 Create a Dockerfile in the root of your project. This will be a multi-stage build to keep the final image lean.
 
-```
+```Dockerfile
 # ---- Base Stage ----
 # Use a specific version for reproducibility
 FROM oven/bun:1-alpine AS base
 WORKDIR /usr/src/app
 
-# ---- Dependencies Stage ----
-# First, install dependencies for both backend and frontend to leverage Docker layer caching
-FROM base AS deps
 
-# Install backend dependencies
-COPY backend/package.json backend/bun.lock* ./backend/
-RUN cd backend && bun i --production --frozen-lockfile
+FROM base AS frontend-builder
 
-# Install frontend dependencies
-COPY frontend/package.json frontend/bun.lock* ./frontend/
-RUN cd frontend && bun i
+COPY frontend/package.json frontend/bun.lock* .
+RUN bun i --frozen-lock
+COPY frontend/. .
+RUN bun run build
 
-# ---- Builder Stage ----
-# Build the frontend application
-FROM base AS builder
+FROM base AS backend-builder
 
-# Copy frontend dependencies from the 'deps' stage
-COPY --from=deps /usr/src/app/frontend/node_modules ./frontend/node_modules
+COPY backend/package.json backend/bun.lock* .
+RUN bun i --frozen-lock
+COPY backend/. .
+RUN bun run build
 
-# Copy frontend source code
-COPY frontend ./frontend
-
-# Build the frontend
-RUN cd frontend && bun run build
+RUN cp $(which bun) bun
 
 # ---- Production Stage ----
 # Create the final, lean production image
-FROM base AS production
+FROM oven/bun:distroless AS runner
 
 # Set environment variable for production
 ENV NODE_ENV=production
-
-# Copy backend dependencies from the 'deps' stage
-COPY --from=deps /usr/src/app/backend/node_modules ./backend/node_modules
-COPY --from=deps /usr/src/app/backend/bun.lock* ./backend/
-
-# Copy backend source code
-COPY backend ./backend
+WORKDIR /app
 
 # Copy the built frontend static assets from the 'builder' stage
 # We'll serve these from a 'public' directory within the backend
-COPY --from=builder /usr/src/app/frontend/dist ./backend/public
-
-# Update the backend server to serve static files
-# This is a key step for a single-container deployment.
-# We'll use a RUN command with sed to modify the server file in-place.
-# This adds a middleware to serve static files from the 'public' folder.
-RUN sed -i "/import { cors } from 'hono\/cors'/a import { serveStatic } from 'hono\/bun'" ./backend/src/index.ts && \
-    sed -i "/app.use('\/api\/\*', cors({/i app.use('/*', serveStatic({ root: './public' }));\napp.use('/', serveStatic({ path: './public/index.html' }));" ./backend/src/index.ts
-
+COPY --from=frontend-builder /usr/src/app/dist /app/public
+COPY --from=backend-builder /usr/src/app/dist/* /app/
 # Expose the port the backend server will run on
 EXPOSE 8787
 
 # Define the command to run the backend server
-CMD ["bun", "run", "backend/src/index.ts"]
+CMD ["app.js"]
 ```
 
 To keep your Docker build context clean and small, create a .dockerignore file in the root directory.
@@ -528,3 +737,14 @@ And run it:
 ```bash
 docker run -p 8787:8787 hateoas-app
 ```
+# Acknowledgement
+
+- This article was mostly created using Gemini AI (2.5 Pro) from Google. I use ChatGPT to rewrite my Bash script to Bun script. The end result enhanced by me to include Chainguard image and chaining commands.
+
+- I pick DaisyUI because of [13 best Tailwind CSS component libraries
+](https://blog.logrocket.com/13-best-tailwind-css-component-libraries/)
+
+- [Install daisyUI for Rsbuild](https://daisyui.com/docs/install/rsbuild/)
+- [Chainguard Container for static](https://images.chainguard.dev/directory/image/static/overview)
+- I use filter to run frontend and backend scripts from root so that it won't run in cycle. [Filter](https://bun.sh/docs/cli/filter)
+- Just for reminder about [Multi-stage builds](https://docs.docker.com/build/building/multi-stage/)

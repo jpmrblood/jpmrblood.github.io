@@ -1,8 +1,11 @@
 ---
 layout: single
-title: Setup Gowebly  
+title: HATEOAS with Bun, Hono, DaisyUI and RSBuild
 tags:
-  - degit
+  - hono
+  - daisyui
+  - tailwind
+  - rsbuild
   - bun
   - cli
 categories:
@@ -12,7 +15,7 @@ header:
   overlay_color: "#000"
   teaser: /assets/the-most-terrifying.png
   overlay_image: /assets/the-most-terrifying.png
-excerpt: Install `degit`
+excerpt: Building backend and frontend architecture with HATEOAS concept.
 ---
 # HATEOAS Boilerplate Setup Guide
 
@@ -213,6 +216,7 @@ Note: Don't forget the tsconfig.json for the frontend as well.
 Populate the files: Copy the content from the corresponding artifacts into each new file.
 
 postcss.config.mjs -> Create new content to frontend/postcss.config.mjs
+
 ```js
 const config = {
   plugins: {
@@ -223,6 +227,7 @@ export default config;
 ```
 
 rsbuild.config.ts -> Use content from frontend/rsbuild.config.ts
+
 ```ts
 import { defineConfig } from '@rsbuild/core';
 
@@ -251,6 +256,7 @@ export default defineConfig({
 ```
 
 public/index.html -> Use content from public/index.html
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -266,12 +272,14 @@ public/index.html -> Use content from public/index.html
 ```
 
 src/index.css -> Use content from frontend/src/index.css
+
 ```css
 @import "tailwindcss";
 @plugin "daisyui";
 ```
 
 src/index.ts -> Use content from frontend/src/index.ts
+
 ```ts
 import { z } from 'zod';
 import './index.css';
@@ -424,3 +432,99 @@ Two cards, one for "The Hitchhiker's Guide to the Galaxy" and one for "The Lord 
 Each card will have buttons like self, edit, and delete. Clicking these will trigger a JavaScript alert, demonstrating that the HATEOAS links are being correctly processed by the frontend.
 
 Congratulations! You have successfully set up the fullstack HATEOAS boilerplate.
+
+## Step 6: Dockerize Your App
+
+Create a Dockerfile in the root of your project. This will be a multi-stage build to keep the final image lean.
+
+```
+# ---- Base Stage ----
+# Use a specific version for reproducibility
+FROM oven/bun:1-alpine AS base
+WORKDIR /usr/src/app
+
+# ---- Dependencies Stage ----
+# First, install dependencies for both backend and frontend to leverage Docker layer caching
+FROM base AS deps
+
+# Install backend dependencies
+COPY backend/package.json backend/bun.lock* ./backend/
+RUN cd backend && bun i --production --frozen-lockfile
+
+# Install frontend dependencies
+COPY frontend/package.json frontend/bun.lock* ./frontend/
+RUN cd frontend && bun i
+
+# ---- Builder Stage ----
+# Build the frontend application
+FROM base AS builder
+
+# Copy frontend dependencies from the 'deps' stage
+COPY --from=deps /usr/src/app/frontend/node_modules ./frontend/node_modules
+
+# Copy frontend source code
+COPY frontend ./frontend
+
+# Build the frontend
+RUN cd frontend && bun run build
+
+# ---- Production Stage ----
+# Create the final, lean production image
+FROM base AS production
+
+# Set environment variable for production
+ENV NODE_ENV=production
+
+# Copy backend dependencies from the 'deps' stage
+COPY --from=deps /usr/src/app/backend/node_modules ./backend/node_modules
+COPY --from=deps /usr/src/app/backend/bun.lock* ./backend/
+
+# Copy backend source code
+COPY backend ./backend
+
+# Copy the built frontend static assets from the 'builder' stage
+# We'll serve these from a 'public' directory within the backend
+COPY --from=builder /usr/src/app/frontend/dist ./backend/public
+
+# Update the backend server to serve static files
+# This is a key step for a single-container deployment.
+# We'll use a RUN command with sed to modify the server file in-place.
+# This adds a middleware to serve static files from the 'public' folder.
+RUN sed -i "/import { cors } from 'hono\/cors'/a import { serveStatic } from 'hono\/bun'" ./backend/src/index.ts && \
+    sed -i "/app.use('\/api\/\*', cors({/i app.use('/*', serveStatic({ root: './public' }));\napp.use('/', serveStatic({ path: './public/index.html' }));" ./backend/src/index.ts
+
+# Expose the port the backend server will run on
+EXPOSE 8787
+
+# Define the command to run the backend server
+CMD ["bun", "run", "backend/src/index.ts"]
+```
+
+To keep your Docker build context clean and small, create a .dockerignore file in the root directory.
+
+```
+# Ignore node_modules for both projects
+**/node_modules
+**/.DS_Store
+**/.vscode
+
+# Ignore build artifacts if they exist locally
+frontend/dist
+
+# Ignore local config files that are not needed
+.git
+.gitignore
+README.md
+```
+
+Let's test it. 
+
+Build:
+```bash
+docker build -t hateoas-app .
+```
+
+And run it:
+```bash
+docker run -p 8787:8787 hateoas-app
+```

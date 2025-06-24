@@ -1,6 +1,6 @@
 ---
 layout: single
-title: HATEOAS with Bun, Hono, DaisyUI and RSBuild
+title: Gracefully Shutdown in Bun
 tags:
   - hono
   - bun

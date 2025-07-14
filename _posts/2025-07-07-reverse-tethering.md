@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Generate 32 Random Characters
+title: Reverse Tethering
 tags:
   - tethering
   - usb

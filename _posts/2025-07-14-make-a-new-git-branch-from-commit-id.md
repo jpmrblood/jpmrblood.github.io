@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Reverse Tethering
+title: Make New GIT Branch from Commit ID
 tags:
   - git
   - branch

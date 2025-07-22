@@ -131,18 +131,30 @@ emulator -avd test_phone &
 
 Create the default project
 ```bash
-bun x @react-native-community/cli@latest init AwesomeProject
+bun x @react-native-community/cli@latest init AwesomeProject && cd AwesomeProject
 ```
 
 
+On one terminal:
+
 Run it:
 ```bash
-cd AwesomeProject
+bun start
+```
+
+On other terminal:
+```bash
 bun android
 ```
 
 I tempted to setup Nativewind. Later.
 
 
+# Reference:
 
-
+* [Setting React Native in Fedora](https://gist.github.com/raivieiraadriano92/a87745fbd04c65eafab5a650d5f40ac5)
+* [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment)
+* [Java versions in Android builds](https://developer.android.com/build/jdks?hl=en#kts)
+* [JetBrains Runtime - Release page](https://github.com/JetBrains/JetBrainsRuntime/releases)
+* [Old Java LTS versions unavailable on F42](https://discussion.fedoraproject.org/t/old-java-lts-versions-unavailable-on-f42/148870)
+* [How to create Android Virtual Device with command line and avdmanager?](https://stackoverflow.com/questions/42792947/how-to-create-android-virtual-device-with-command-line-and-avdmanager)

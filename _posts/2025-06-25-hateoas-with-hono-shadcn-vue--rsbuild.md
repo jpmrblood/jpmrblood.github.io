@@ -4,7 +4,7 @@ title: HATEOAS with Bun, Hono, DaisyUI and RSBuild
 tags:
   - hateoas
   - hono
-  - daisyui
+  - shadcn
   - tailwind
   - rsbuild
   - bun
@@ -18,14 +18,18 @@ header:
   overlay_image: /assets/the-most-terrifying.png
 excerpt: Building backend and frontend architecture with HATEOAS concept.
 ---
-# HATEOAS Boilerplate Setup Guide
+# Why shadcn-vue?
 
-This tutorial will walk you through setting up the complete project, including the directory structure, installing dependencies, and running both the backend and frontend servers.
+I like alternative and I like stability. I'm no webdev that can waste my time to change the syntax every six months. Vue is stable and shadcn provided the Tailwind-component based with install what you need.
+
+The structure is:
+- backend: backend server that serve REST API.
+- frontend: that fancy shadcn-vue
 
 ## Prerequisites
-Before you begin, make sure you have the following installed on your system:
+Before begin, make sure you know that I use `Bun`: A fast JavaScript all-in-one toolkit. 
 
-- `Bun`: A fast JavaScript all-in-one toolkit. [Installation Guide](https://bun.sh/docs/installation)
+- [Installation Guide](https://bun.sh/docs/installation)
 
 ## Step 1: Create the Project Directory Structure
 
@@ -44,153 +48,43 @@ Inside hateoas-boilerplate, create the backend and frontend directories:
 mkdir backend frontend
 ```
 
-Set up the nested directories for both applications:
-
-```bash
-# For the backend
-mkdir -p backend/src
-
-# For the frontend
-mkdir -p frontend/src frontend/public
-```
-
-After this step, your project structure should look like this:
-
-```
-hateoas-boilerplate/
-├── backend/
-│   └── src/
-└── frontend/
-    ├── public/
-    └── src/
-```
-
 ## Step 2: Set Up the Backend (Bun + Hono)
 
 Now, let's populate the backend directory.
 
-Navigate to the backend folder:
+```bash
+bun create hono@latest backend/
+```
+The options:
 
 ```bash
-cd backend
+$ bun create hono@latest backend
+create-hono version 0.19.1
+✔ Using target directory … backend/
+✔ Which template do you want to use? bun
+✔ Do you want to install project dependencies? Yes
+✔ Which package manager do you want to use? bun
+✔ Cloning the template
+✔ Installing project dependencies
+🎉 Copied project files
+Get started with: cd backend/
 ```
 
-Create the backend project:
-
-```bash
-bun create hono@latest ./
-```
-
-Install dependencies:
-
-```bash
-bun i zod
-```
-
-
-Populate the files: Copy the content from the corresponding artifacts into the files you just created.
-
-- src/index.ts -> Use the content from backend/src/index.ts
+The `src/index.ts` -> Use the content from backend/src/index.ts
 
 ```ts
 import { Hono } from 'hono'
-import { validator } from 'hono/validator'
-import { z } from 'zod'
-import { cors } from 'hono/cors'
 
 const app = new Hono()
 
-// Add CORS middleware to allow requests from the frontend
-app.use('/api/*', cors({
-  origin: 'http://localhost:3000', // RSBuild default dev server port
-  allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowHeaders: ['Content-Type']
-}))
-
-// Define a schema for our resource
-const bookSchema = z.object({
-  id: z.string(),
-  title: z.string(),
-  author: z.string(),
-});
-
-type Book = z.infer<typeof bookSchema>;
-
-// Mock database
-let books: Book[] = [
-  { id: '1', title: 'The Hitchhiker\'s Guide to the Galaxy', author: 'Douglas Adams' },
-  { id: '2', title: 'The Lord of the Rings', author: 'J.R.R. Tolkien' },
-];
-
-// HATEOAS link generator
-const generateBookLinks = (book: Book) => {
-  return [
-    { rel: 'self', href: `/api/books/${book.id}`, method: 'GET' },
-    { rel: 'edit', href: `/api/books/${book.id}`, method: 'PUT' },
-    { rel: 'delete', href: `/api/books/${book.id}`, method: 'DELETE' },
-  ]
-}
-
-// Collection endpoint
-app.get('/api/books', (c) => {
-  const booksWithLinks = books.map(book => ({
-    ...book,
-    _links: generateBookLinks(book)
-  }));
-  return c.json({
-    _data: booksWithLinks,
-    _links: {
-      self: { href: '/api/books', method: 'GET' },
-      create: { href: '/api/books', method: 'POST' },
-    }
-  })
+app.get('/', (c) => {
+  return c.text('Hello Hono!')
 })
 
-// Single resource endpoint
-app.get('/api/books/:id', (c) => {
-  const book = books.find(b => b.id === c.req.param('id'))
-  if (!book) {
-    return c.json({ error: 'Book not found' }, 404)
-  }
-  return c.json({
-    ...book,
-    _links: generateBookLinks(book)
-  })
-})
-
-// Create resource endpoint
-const createBookSchema = bookSchema.omit({ id: true });
-
-app.post(
-  '/api/books',
-  validator('json', (value, c) => {
-    const parsed = createBookSchema.safeParse(value);
-    if (!parsed.success) {
-      return c.json({ error: 'Invalid input', issues: parsed.error.issues }, 400)
-    }
-    return parsed.data;
-  }),
-  (c) => {
-    const newBookData = c.req.valid('json');
-    const newBook: Book = {
-      id: (books.length + 1).toString(),
-      ...newBookData
-    }
-    books.push(newBook);
-    return c.json(newBook, 201)
-  }
-)
-
-console.log("Server running at http://localhost:8787")
-
-export default {
-  port: 8787,
-  fetch: app.fetch,
-}
-
+export default app
 ```
 
-## Step 3: Set Up the Frontend (RSBuild + DaisyUI)
+## Step 3: Set Up the Frontend (RSBuild + shadcn-vue)
 
 Next, we'll set up the frontend application.
 
@@ -203,7 +97,6 @@ cd ../frontend
 Create frontend project:
 
 ```bash
-bun i zod
 bun create rsbuild@latest ./
 ```
 

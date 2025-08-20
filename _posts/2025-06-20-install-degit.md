@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Setup Gowebly  
+title: Install Degit
 tags:
   - degit
   - bun

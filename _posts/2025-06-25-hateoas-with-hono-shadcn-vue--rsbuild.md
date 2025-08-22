@@ -1,6 +1,6 @@
 ---
 layout: single
-title: HATEOAS with Bun, Hono, DaisyUI and RSBuild
+title: HATEOAS with Bun, Hono, shadcn-vue, and RSBuild
 tags:
   - hateoas
   - hono

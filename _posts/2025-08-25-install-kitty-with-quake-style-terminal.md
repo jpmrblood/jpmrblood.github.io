@@ -139,7 +139,10 @@ To make the experience smoother, you can tweak the window behavior with **KWin r
    * Skip taskbar and pager
    * Placement: Top
 
-🖼️ *\[Insert screenshot: KWin Window Rules dialog with “Keep above others” checked]*
+![Insert screenshot: KWin Window Rules dialog with “Keep above others” checked](/assets/2025/08/kitten-window-settings.png)
+
+NOTE: Press <kbd>ALT</kbd> + <kbd>F3</kbd>
+
 
 ## ✅ Done!
 

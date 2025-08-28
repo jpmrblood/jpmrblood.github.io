@@ -1,8 +1,20 @@
 ---
-title: "Xinference: A Unified Platform for AI Model Inference"
-date: 2025-08-28
-categories: [AI, Machine Learning, Tools]
-tags: [xinference, ai-inference, llm, multimodal-models]
+layout: single
+title: Xinference, A Unified Platform for AI Model Inference
+tags:
+  - xinference
+  - inference
+  - AI
+  - llm
+  - multimodals
+categories:
+  - notes
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
+  teaser: /assets/the-most-terrifying.png
+  overlay_image: /assets/the-most-terrifying.png
+excerpt: Unified platform for serving AI models with multiple backends and formats
 ---
 
 Xinference is an open-source library developed by Xorbits that provides a unified platform for serving various AI models, including language models, speech recognition systems, and multimodal models. It simplifies the deployment and management of AI inference workloads with support for multiple backends and optimization techniques.

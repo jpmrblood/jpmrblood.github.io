@@ -12,8 +12,8 @@ categories:
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
-  teaser: /assets/the-most-terrifying.png
-  overlay_image: /assets/the-most-terrifying.png
+  teaser: /assets/2025/08/robotic-ai.png
+  overlay_image: /assets/2025/08/robotic-ai.png
 excerpt: Optimizing AI inference performance with Intel hardware
 ---
 

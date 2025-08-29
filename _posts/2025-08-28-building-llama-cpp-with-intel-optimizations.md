@@ -33,6 +33,10 @@ Intel processors power most modern computers, but their full potential often rem
 - **Flash Attention**: Memory-efficient attention mechanism
 - **Context Shifting**: Dynamic context management for better memory usage
 
+## The Build Script
+
+<script src="https://gist.github.com/jpmrblood/0e9bc9bd2c6d89b73c08b8076f6f33c7.js"></script>
+
 ## The Build Script Deep Dive
 
 Here's the complete build script with detailed explanations:
@@ -42,9 +46,9 @@ Here's the complete build script with detailed explanations:
 # build-llama-intel.sh
 set -e
 
-BUILD_DIR=/home/jp/PERURI-ID/llama.cpp
+BUILD_DIR=${HOME}/BUILD/llama.cpp
 BUILD_TARGET_DIR=build
-INSTALL_TARGET_DIR=/home/jp/.local/share/llama.cpp
+INSTALL_TARGET_DIR=${HOME}/.local/share/llama.cpp
 ```
 
 ### Script Configuration

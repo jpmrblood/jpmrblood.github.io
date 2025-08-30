@@ -46,3 +46,75 @@ $base0f: #a3685a !default;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+// Custom styles for code line numbers
+.highlight {
+  .gutter {
+    background: $code-background-color-dark;
+    border-right: 1px solid $border-color;
+    color: $muted-text-color;
+    padding-right: 0.5em;
+    text-align: right;
+    user-select: none;
+  }
+
+  pre {
+    border-left: 1px solid $border-color;
+  }
+}
+
+// For Rouge line numbers
+.rouge-table {
+  .rouge-gutter {
+    background: $code-background-color-dark;
+    border-right: 1px solid $border-color;
+    color: $muted-text-color;
+    padding: 0 0.5em;
+    text-align: right;
+    user-select: none;
+  }
+
+  .rouge-code {
+    border-left: 1px solid $border-color;
+  }
+}
+
+// Code block language labels
+.code-label {
+  background: $code-background-color-dark;
+  border: 1px solid $border-color;
+  border-bottom: none;
+  color: $muted-text-color;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-bottom: 0;
+  padding: 0.25em 0.5em;
+  position: relative;
+  top: 1px;
+
+  &:before {
+    content: attr(data-lang);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+pre {
+  position: relative;
+
+  &:before {
+    background: $code-background-color-dark;
+    border: 1px solid $border-color;
+    border-bottom: none;
+    color: $muted-text-color;
+    content: attr(data-lang);
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    top: 0;
+    z-index: 1;
+  }
+}

@@ -25,12 +25,6 @@ include:
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    line_numbers: true
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 minimal_mistakes_skin    : "sunrise"
 plugins:

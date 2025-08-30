@@ -55,3 +55,62 @@ cmake -B build -DCMAKE_BUILD_TYPE=Release -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=FLAM
 cmake --build build --config Release
 ```
 
+### Installing the Binaries
+
+While `llama.cpp` does not provide a standard installation script (`make install`), you need to manually place the compiled binaries. I opt for put the `bin` directory in `build` into a local directory and add it to your system's `PATH`. The reason why I don't put it in the general `bin` directory is because it has a lot of binaries and libraries.
+
+Here's a common way to do it:
+
+1. **Create a directory** to store the `llama.cpp` binaries. We'll use `~/.local/share/llama.cpp`.
+
+   ```bash
+   mkdir -p ~/.local/share/llama.cpp
+   ```
+
+2. **Copy the compiled binaries** from the `build/bin` directory to the newly created directory.
+
+   ```bash
+   cp -a build/bin/ ~/.local/share/llama.cpp/
+   ```
+
+3. **Add the new directory to your `PATH`**. This command appends a line to your `.bashrc` file, so the `PATH` is updated automatically in future terminal sessions.
+
+   ```bash
+   echo 'export PATH=$PATH:$HOME/.local/share/llama.cpp/bin' >> ~/.bashrc
+   ```
+
+4. **Apply the changes** to your current terminal session.
+
+   ```bash
+   source ~/.bashrc
+   ```
+
+Now, you can verify that the installation was successful by checking the version of `llama-cli`:
+
+```bash
+$ llama-cli --version
+version: 6294 (bcbddcd5)
+built with gcc (GCC) 14.2.1 20240805 (Red Hat 14.2.1-1) for x86_64-redhat-linux
+```
+
+The output confirms that the `llama-cli` command is now accessible and that it was compiled with GCC.
+
+### Running a Model
+
+With `llama.cpp` installed, you can now run a model. The `llama-cli` tool can automatically download a model from Hugging Face and run it.
+
+Here is an example command to run a model:
+
+```bash
+llama-cli -hf unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M --color -c 2048 -n 512 -t 3 --temp 0.7
+```
+
+Here's a breakdown of the parameters used in this command:
+
+- `-hf unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M`: Downloads the Qwen3-4B-Instruct model (quantized to Q4_K_M) from the Hugging Face repository `unsloth/Qwen3-4B-Instruct-2507-GGUF`
+- `--color`: Enables colorized output for better readability
+- `-c 2048`: Sets the context size to 2048 tokens (conservative for laptop memory)
+- `-n 512`: Sets the maximum number of tokens to generate to 512 (reasonable response length)
+- `-t 3`: Uses 3 threads for processing (conservative for laptop thermal management)
+- `--temp 0.7`: Sets the temperature for sampling (balanced creativity vs determinism)
+

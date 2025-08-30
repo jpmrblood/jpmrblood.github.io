@@ -14,6 +14,8 @@ header:
 excerpt: How to compile and install llama.cpp using BLIS for better performance on old Ryzen laptop.
 ---
 
+Today I want to test my luck to run `llama.cpp` in  ThinkPad L14 Gen 1 in Fedora Linux 42. I have 32GB of RAM, mind you, so I can try to load bigger model.
+
 ### Install BLIS
 
 Get BLIS:

@@ -28,6 +28,7 @@ Compile and install
 
 ```bash
 CFLAGS="-O3 -march=native -mtune=native -funroll-loops -fomit-frame-pointer" LDFLAGS="-ljemalloc" ./configure --prefix=/usr --libdir=/usr/lib64 --enable-cblas  -t openmp,pthreads zen2
+sudo make install
 ```
 
 This configure command sets up BLIS for compilation with optimizations for Zen 2 architecture (used in Ryzen processors). It enables CBLAS interface, OpenMP and pthreads threading, and installs to system directories. The CFLAGS optimize for performance with native architecture tuning and jemalloc for memory allocation.

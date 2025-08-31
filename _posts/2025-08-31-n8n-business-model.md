@@ -216,50 +216,50 @@ Proactive alignment with the appropriate license is not merely a matter of legal
 
 ## References
 
-1. https://docs.n8n.io/
-2. https://community.n8n.io/t/a-new-license-for-n8n/11873
-3. https://www.reddit.com/r/n8n/comments/1lx0nhf/clarification_on_n8n_sustainable_use_license_for/
-4. https://n8n.io/workflows/4558-generate-complete-business-plans-with-customizable-ai-models-and-specialized-agents/
-5. https://hub.docker.com/r/n8nio/n8n
-6. https://github.com/n8n-io
-7. https://community.n8n.io/t/convert-n8n-workflows-to-code/29518
-8. https://docs.n8n.io/sustainable-use-license/
-9. https://docs.n8n.io/hosting/configuration/environment-variables/licenses/
-10. https://www.skool.com/content-academy/are-you-using-n8n-open-source-did-you-know-this
-11. https://blog.n8n.io/announcing-new-sustainable-use-license/
-12. https://github.com/n8n-io/n8n
-13. https://www.reddit.com/r/n8n/comments/1k58l6q/how_do_you_navigating_n8n_sustainable_use/
-14. https://news.ycombinator.com/item?id=43879515
-15. https://n8n.io/
-16. https://www.reddit.com/r/n8n/comments/1mspq5v/if_you_are_self_hosting_n8n_and_charging_money/
-17. https://docs.n8n.io/hosting/
-18. https://sourceforge.net/projects/n8n.mirror/
-19. https://www.youtube.com/watch?v=fXEubzmVJ_E
-20. https://github.com/n8n-io/n8n/issues/40
-21. https://docs.n8n.io/license-key/
-22. https://www.reddit.com/r/n8n/comments/1ioogo9/licensing_questions/
-23. https://www.reddit.com/r/n8n/comments/1i1dfbh/has_anyone_made_real_money_using_n8n/
-24. https://www.reddit.com/r/n8n/comments/1kg0geq/confusing_license_can_we_use_n8n/
-25. https://community.n8n.io/t/question-about-sustainable-use-license/125838
-26. https://n8n.io/integrations/code/
-27. https://community.n8n.io/t/i-have-some-questions-regarding-the-n8n-license/168267
-28. https://www.reddit.com/r/n8n/comments/1mo4a5h/what_youre_selling_is_illegal_n8n_license/
-29. https://docs.n8n.io/choose-n8n/
-30. https://n8n.io/enterprise/
-31. https://n8n.io/pricing/
-32. https://www.reddit.com/r/n8n/comments/1mk07pf/n8ns_new_selfhosted_pricing_is_live_and_its_not/
-33. https://blog.n8n.io/n8n-execution-advantage/
-34. https://www.reddit.com/r/n8n/comments/1mjyo05/n8n_introduces_insane_new_pricing/
-35. https://thedigitalprojectmanager.com/productivity/n8n-pricing/
-36. https://n8n.io/ai/
-37. https://community.n8n.io/t/running-n8n-automation-for-clients/43103
-38. https://app.n8n.cloud/
-39. https://www.developershangout.io/episodes/the-n8n-and-activepieces-license-conversation
-40. https://www.skool.com/ai-automation-society/n8n-commercial-use
-41. https://medium.com/@dejanmarkovic_53716/supercharge-your-business-with-n8n-automation-workflows-56394219be60
-42. https://www.youtube.com/c/n8n-io
-43. https://sliplane.io/blog/n8n-pricing
-44. https://n8nchat.com/
-45. https://n8n.io/embed/
-46. https://www.hostinger.com/self-hosted-n8n
-47. https://community.n8n.io/t/licensing-commercial-use-or-not/137924
+1. [n8n Documentation](https://docs.n8n.io/)
+2. [A New License for n8n](https://community.n8n.io/t/a-new-license-for-n8n/11873)
+3. [Clarification on n8n Sustainable Use License](https://www.reddit.com/r/n8n/comments/1lx0nhf/clarification_on_n8n_sustainable_use_license_for/)
+4. [Generate Complete Business Plans with Customizable AI Models](https://n8n.io/workflows/4558-generate-complete-business-plans-with-customizable-ai-models-and-specialized-agents/)
+5. [n8n on Docker Hub](https://hub.docker.com/r/n8nio/n8n)
+6. [n8n-io on GitHub](https://github.com/n8n-io)
+7. [Convert n8n Workflows to Code](https://community.n8n.io/t/convert-n8n-workflows-to-code/29518)
+8. [Sustainable Use License Documentation](https://docs.n8n.io/sustainable-use-license/)
+9. [License Environment Variables](https://docs.n8n.io/hosting/configuration/environment-variables/licenses/)
+10. [Are You Using n8n Open Source?](https://www.skool.com/content-academy/are-you-using-n8n-open-source-did-you-know-this)
+11. [Announcing New Sustainable Use License](https://blog.n8n.io/announcing-new-sustainable-use-license/)
+12. [n8n Repository on GitHub](https://github.com/n8n-io/n8n)
+13. [Navigating n8n Sustainable Use License](https://www.reddit.com/r/n8n/comments/1k58l6q/how_do_you_navigating_n8n_sustainable_use/)
+14. [Hacker News Discussion](https://news.ycombinator.com/item?id=43879515)
+15. [n8n Official Website](https://n8n.io/)
+16. [Self-Hosting n8n and Charging Money](https://www.reddit.com/r/n8n/comments/1mspq5v/if_you_are_self_hosting_n8n_and_charging_money/)
+17. [n8n Hosting Documentation](https://docs.n8n.io/hosting/)
+18. [n8n Mirror on SourceForge](https://sourceforge.net/projects/n8n.mirror/)
+19. [n8n YouTube Video](https://www.youtube.com/watch?v=fXEubzmVJ_E)
+20. [n8n Issue #40 on GitHub](https://github.com/n8n-io/n8n/issues/40)
+21. [License Key Documentation](https://docs.n8n.io/license-key/)
+22. [Licensing Questions](https://www.reddit.com/r/n8n/comments/1ioogo9/licensing_questions/)
+23. [Has Anyone Made Real Money Using n8n?](https://www.reddit.com/r/n8n/comments/1i1dfbh/has_anyone_made_real_money_using_n8n/)
+24. [Confusing License - Can We Use n8n?](https://www.reddit.com/r/n8n/comments/1kg0geq/confusing_license_can_we_use_n8n/)
+25. [Question About Sustainable Use License](https://community.n8n.io/t/question-about-sustainable-use-license/125838)
+26. [n8n Code Integrations](https://n8n.io/integrations/code/)
+27. [Questions Regarding the n8n License](https://community.n8n.io/t/i-have-some-questions-regarding-the-n8n-license/168267)
+28. [What You're Selling is Illegal n8n License](https://www.reddit.com/r/n8n/comments/1mo4a5h/what_youre_selling_is_illegal_n8n_license/)
+29. [Choose n8n Documentation](https://docs.n8n.io/choose-n8n/)
+30. [n8n Enterprise](https://n8n.io/enterprise/)
+31. [n8n Pricing](https://n8n.io/pricing/)
+32. [n8n's New Self-Hosted Pricing](https://www.reddit.com/r/n8n/comments/1mk07pf/n8ns_new_selfhosted_pricing_is_live_and_its_not/)
+33. [n8n Execution Advantage](https://blog.n8n.io/n8n-execution-advantage/)
+34. [n8n Introduces Insane New Pricing](https://www.reddit.com/r/n8n/comments/1mjyo05/n8n_introduces_insane_new_pricing/)
+35. [n8n Pricing Guide](https://thedigitalprojectmanager.com/productivity/n8n-pricing/)
+36. [n8n AI](https://n8n.io/ai/)
+37. [Running n8n Automation for Clients](https://community.n8n.io/t/running-n8n-automation-for-clients/43103)
+38. [n8n Cloud](https://app.n8n.cloud/)
+39. [The n8n and Activepieces License Conversation](https://www.developershangout.io/episodes/the-n8n-and-activepieces-license-conversation)
+40. [n8n Commercial Use](https://www.skool.com/ai-automation-society/n8n-commercial-use)
+41. [Supercharge Your Business with n8n](https://medium.com/@dejanmarkovic_53716/supercharge-your-business-with-n8n-automation-workflows-56394219be60)
+42. [n8n-io YouTube Channel](https://www.youtube.com/c/n8n-io)
+43. [n8n Pricing Blog](https://sliplane.io/blog/n8n-pricing)
+44. [n8n Chat](https://n8nchat.com/)
+45. [n8n Embed](https://n8n.io/embed/)
+46. [Self-Hosted n8n at Hostinger](https://www.hostinger.com/self-hosted-n8n)
+47. [Licensing Commercial Use or Not](https://community.n8n.io/t/licensing-commercial-use-or-not/137924)

@@ -11,6 +11,8 @@ categories:
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
+  teaser: /assets/2025/08/robotic-ai.png
+  overlay_image: /assets/2025/08/robotic-ai.png
 excerpt: How to compile and install llama.cpp using BLIS for better performance on old Ryzen laptop.
 ---
 

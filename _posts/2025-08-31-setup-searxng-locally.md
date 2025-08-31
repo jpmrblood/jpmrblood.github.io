@@ -18,262 +18,77 @@ excerpt: Learn how to set up SearxNG, a privacy-respecting metasearch engine, on
 
 # Setting Up SearxNG Locally for Private Search
 
-SearxNG is a free internet metasearch engine which aggregates results from more than 70 search services while respecting your privacy. It's a privacy-respecting, hackable metasearch engine that can be self-hosted. This guide walks through the step-by-step setup of SearxNG on a Linux system using Docker for a simple and isolated installation.
+SearxNG is a free internet metasearch engine which aggregates results from more than 70 search services while respecting your privacy. It's a privacy-respecting, hackable metasearch engine that can be self-hosted. This guide walks through the step-by-step setup of SearxNG on a GNU/Linux system using Docker for a simple and isolated installation.
 
 ## Prerequisites
 
-- A Linux machine (e.g., CentOS 7/8, RHEL 8, or Ubuntu 20.04+). I'm using Fedora 42.
-- Internet access
-- Administrative privileges to install software via `sudo`
-- Docker installed on your system
+Before you begin, ensure your laptop meets the following requirements:
 
----
+  * **Operating System**: Windows 10/11, macOS, or a Linux distribution.
+  * **System Resources**: A **64-bit processor** is recommended. The application is lightweight, with a minimum of **512MB RAM** and around **300MB of storage** required for the Docker image itself. However, **2GB of RAM or more** is better for optimal performance.
+  * **Software**: You must have **Docker** or **Podman** installed and running on your system. Docker is the most common choice and is available for all major operating systems.
 
-## Step 1: Install Docker
+## Installation Steps
 
-Begin by installing Docker, which is required for running SearxNG in an isolated container environment.
+### 1\. Install Docker
 
-```bash
-sudo yum install docker
-```
+If you haven't already, download and install Docker Desktop from the official Docker website. Once installed, start the Docker application.
 
-> 📝 Explanation of parameters:
-> - `sudo`: Executes the command with superuser privileges, required for installing system packages.
-> - `yum`: The package manager for RPM-based Linux distributions like Fedora.
-> - `install`: The subcommand to install a specified package.
-> - `docker`: The name of the package to install, Docker container runtime.
+-----
 
-For Ubuntu/Debian systems, use:
-```bash
-sudo apt update && sudo apt install docker.io
-```
+### 2\. Get the SearXNG Docker Compose File
 
----
+The easiest way to run SearXNG is by using the official `searxng-docker` repository, which includes a `docker-compose.yml` file to manage the SearXNG container and its dependencies (like Redis).
 
-## Step 2: Start and Enable Docker Service
+1.  Open your terminal or command prompt.
+2.  Clone the repository using `git`:
+    ```bash
+    git clone https://github.com/searxng/searxng-docker.git
+    ```
+3.  Navigate into the new directory:
+    ```bash
+    cd searxng-docker
+    ```
 
-Start the Docker service and enable it to start automatically on boot.
+-----
 
-```bash
-sudo systemctl start docker
-sudo systemctl enable docker
-```
+### 3\. Generate a Secret Key
 
-> 📝 Explanation of parameters:
-> - `systemctl`: Command to control the systemd system and service manager.
-> - `start`: Subcommand to start a service.
-> - `enable`: Subcommand to enable a service to start automatically at boot.
-> - `docker`: The name of the service to control.
+For security, you need to generate a unique secret key for your instance. This key is used for various cryptographic operations.
 
----
+  * **On Linux/macOS**:
+    ```bash
+    sed -i "s|ultrasecretkey|$(openssl rand -hex 32)|g" searxng/settings.yml
+    ```
+  * **On Windows (PowerShell)**:
+    ```powershell
+    $secretKey = -join ((New-Object System.Security.Cryptography.RNGCryptoServiceProvider).GetBytes(32) | ForEach-Object { "{0:x2}" -f $_ })
+    (Get-Content searxng/settings.yml) -replace 'ultrasecretkey', $secretKey | Set-Content searxng/settings.yml
+    ```
 
-## Step 3: Create SearxNG Configuration Directory
+-----
 
-Create a directory to store SearxNG configuration files and data.
+### 4\. Run SearXNG
 
-```bash
-mkdir -p ~/searxng
-cd ~/searxng
-```
+With the secret key configured, you can now start the SearXNG service using Docker Compose.
 
-> 📝 Explanation of parameters:
-> - `mkdir`: Command to create directories.
-> - `-p`: Option to create parent directories as needed.
-> - `~/searxng`: Path to create the SearxNG directory in your home folder.
-> - `cd`: Command to change the current directory.
-> - `~/searxng`: Path to navigate to the newly created directory.
+1.  In your terminal, from the `searxng-docker` directory, run the following command:
+    ```bash
+    docker compose up -d
+    ```
+    This command will pull the necessary Docker images, create the containers, and run them in the background (`-d` for detached mode).
+2.  To check if the containers are running, use:
+    ```bash
+    docker ps
+    ```
+    You should see `searxng` and `redis` listed as running containers.
 
----
+-----
 
-## Step 4: Download SearxNG Settings Template
+### 5\. Access Your Instance
 
-Download the default SearxNG settings template to customize your instance.
+Once the containers are up, your SearXNG instance will be accessible through your web browser.
 
-```bash
-curl -O https://raw.githubusercontent.com/searxng/searxng/master/searxng/settings.yml
-```
+  * Open your browser and navigate to **`http://localhost:8080`**.
 
-> 📝 Explanation of parameters:
-> - `curl`: Command-line tool for transferring data with URLs.
-> - `-O`: Option to write output to a file named as the remote file.
-> - `https://raw.githubusercontent.com/searxng/searxng/master/searxng/settings.yml`: URL to the SearxNG settings template.
-
----
-
-## Step 5: Customize SearxNG Settings (Optional)
-
-Edit the settings.yml file to customize your SearxNG instance. For basic setup, you can skip this step, but for production use, consider changing the secret key:
-
-```bash
-# Generate a secret key
-openssl rand -hex 32
-```
-
-Then edit the settings.yml file to replace the default secret key:
-```bash
-nano settings.yml
-```
-
-Find the `server.secret_key` line and replace the value with your generated key.
-
----
-
-## Step 6: Create Docker Compose File
-
-Create a docker-compose.yml file to define the SearxNG service:
-
-```bash
-cat > docker-compose.yml << 'EOF'
-version: '3.7'
-
-services:
-  searxng:
-    image: searxng/searxng:latest
-    container_name: searxng
-    ports:
-      - "8080:8080"
-    volumes:
-      - ./settings.yml:/etc/searxng/settings.yml:ro
-    environment:
-      - SEARXNG_BASE_URL=https://localhost/searxng/
-    restart: unless-stopped
-EOF
-```
-
-> 📝 Explanation of parameters:
-> - `cat`: Command to concatenate and display files.
-> - `> docker-compose.yml`: Redirects output to create/overwrite the docker-compose.yml file.
-> - `<< 'EOF'`: Heredoc syntax to provide multi-line input.
-> - `version: '3.7'`: Docker Compose file format version.
-> - `image: searxng/searxng:latest`: Specifies the SearxNG Docker image to use.
-> - `container_name: searxng`: Sets a custom name for the container.
-> - `ports: - "8080:8080"`: Maps port 8080 on host to port 8080 in container.
-> - `volumes: - ./settings.yml:/etc/searxng/settings.yml:ro`: Mounts local settings file into container as read-only.
-> - `environment: - SEARXNG_BASE_URL=https://localhost/searxng/`: Sets the base URL environment variable.
-> - `restart: unless-stopped`: Automatically restarts the container unless explicitly stopped.
-
----
-
-## Step 7: Start SearxNG Service
-
-Launch the SearxNG service using Docker Compose:
-
-```bash
-docker-compose up -d
-```
-
-> 📝 Explanation of parameters:
-> - `docker-compose`: Command to manage multi-container Docker applications.
-> - `up`: Creates and starts containers.
-> - `-d`: Runs containers in the background (detached mode).
-
-> 🚀 This command pulls the SearxNG Docker image and starts the service. The first run may take a few minutes to download the image.
-
----
-
-## Step 8: Verify SearxNG is Running
-
-Check that the SearxNG container is running properly:
-
-```bash
-docker-compose ps
-```
-
-> 📝 Explanation of parameters:
-> - `docker-compose`: Command to manage multi-container Docker applications.
-> - `ps`: Lists containers.
-
-You should see output similar to:
-```
-NAME      IMAGE                  COMMAND                  SERVICE   CREATED        STATUS        PORTS
-searxng   searxng/searxng:latest "/sbin/tini -- /usr/…"   searxng   1 minute ago   Up 1 minute   0.0.0.0:8080->8080/tcp
-```
-
----
-
-## Step 9: Access SearxNG Web Interface
-
-Open your web browser and navigate to:
-
-```
-http://localhost:8080
-```
-
-> 🌐 The SearxNG web interface will be available at this address.
-
-> ✅ You can now perform private searches without your queries being tracked by major search engines.
-
----
-
-## Additional Configuration Options
-
-### Changing the Port
-
-To use a different port, modify the `ports` section in docker-compose.yml:
-```yaml
-ports:
-  - "9090:8080"
-```
-
-Then restart the service:
-```bash
-docker-compose down
-docker-compose up -d
-```
-
-### Persistent Data Storage
-
-To persist search history and settings, add a volume for the data directory:
-```yaml
-volumes:
-  - ./settings.yml:/etc/searxng/settings.yml:ro
-  - ./data:/var/lib/searxng:rw
-```
-
-Create the data directory:
-```bash
-mkdir data
-```
-
----
-
-## Use Cases
-
-- **Privacy-First Search**: Ideal for users who want to avoid tracking by major search engines.
-- **Ad-Free Experience**: Enjoy a clean, ad-free search experience.
-- **Customizable Interface**: Modify the look and feel to suit your preferences.
-- **Multiple Search Engines**: Aggregate results from various sources in one place.
-- **Educational Use**: Great for learning about search engines and privacy technologies.
-
----
-
-## Troubleshooting Tips
-
-- **Port Conflict**: If port 8080 is already in use, change it in the docker-compose.yml file.
-- **Docker Permission Denied**: Add your user to the docker group with `sudo usermod -aG docker $USER` and log out/in.
-- **Container Not Starting**: Check logs with `docker-compose logs searxng` for error messages.
-- **Configuration Issues**: Ensure the settings.yml file has proper YAML formatting.
-- **Network Issues**: Verify internet connectivity and firewall settings.
-- **Service Not Accessible**: Confirm no firewall is blocking the port. Use `curl http://localhost:8080` to test connectivity.
-- **Performance Issues**: For high-traffic instances, consider adding resource limits to docker-compose.yml.
-
----
-
-## Updating SearxNG
-
-To update to the latest version of SearxNG:
-
-```bash
-docker-compose pull
-docker-compose up -d
-```
-
-> 🔄 This command pulls the latest SearxNG Docker image and restarts the service with the updated version.
-
----
-
-## Conclusion
-
-SearxNG provides an excellent way to maintain your privacy while searching the web. By self-hosting, you have complete control over your search data and can customize the experience to your needs. The Docker-based setup makes installation and maintenance straightforward while providing an isolated environment for the service.
-
-With this setup, you can enjoy private, ad-free search results from multiple engines without compromising your privacy.
+You should now see the SearXNG search interface. You can begin searching and customize your settings, such as enabling or disabling specific search engines.

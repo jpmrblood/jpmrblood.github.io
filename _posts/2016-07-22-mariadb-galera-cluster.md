@@ -8,9 +8,10 @@ tags:
  - debian
  - linux
 categories:
- - admin
- - linux
- - review
+  - admin
+  - linux
+  - review
+excerpt: "Complete guide to setting up MariaDB Galera Cluster with HAProxy for high availability. Includes configuration, installation, and load balancing setup for production environments."
 ---
 
 ![HA Proxy encapsulate a Galera cluster for High-Availability solution.](/assets/haproxy-galera-1.png){: .align-center}

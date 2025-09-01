@@ -14,6 +14,7 @@ tags:
 categories:
   - tips
   - linux
+excerpt: "Personal guide to installing GNU/Linux with optimized tools including MBuffer, LRZIP, Xanmod Kernel, and ZFS. KDE Neon setup with performance enhancements."
 ---
 I love to install using MBuffer, LRZIP and Xanmod Kernel. I'm using KDE Neon with ZFS GIT.
 

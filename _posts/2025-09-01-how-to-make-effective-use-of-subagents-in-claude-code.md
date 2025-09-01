@@ -11,6 +11,12 @@ categories:
   - tech
   - ai
   - programming
+excerpt: "Master Claude Code subagents with this comprehensive guide. Learn how to use specialized AI agents as researchers and planners for dramatically improved development workflows, reduced token consumption, and consistent high-quality results."
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
+  teaser: /assets/2025/08/robotic-ai.png
+  overlay_image: /assets/2025/08/robotic-ai.png
 ---
 
 **TL;DR**:

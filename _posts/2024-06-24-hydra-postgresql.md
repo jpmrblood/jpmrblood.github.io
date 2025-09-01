@@ -202,6 +202,6 @@ docker run -it --rm $HYDRA_IMAGE help serve
 ## Check ports
 
 ```bash
-docker container ls --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" -a
+docker container ls --format "table {% raw %}{{.ID}}{% endraw %}\t{% raw %}{{.Names}}{% endraw %}\t{% raw %}{{.Ports}}{% endraw %}" -a
 ```
 

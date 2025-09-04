@@ -42,7 +42,7 @@ There are several ways to install Context7 MCP depending on your preference:
 The recommended way to install Context7 MCP is using the `qwen mcp add` command:
 
 ```bash
-qwen mcp add @context7/mcp-qwen-stdio
+qwen mcp add @upstash/context7-mcp
 ```
 
 This command will:
@@ -55,7 +55,7 @@ This command will:
 If you prefer to install it globally using bun directly:
 
 ```bash
-bun i -g @context7/mcp-qwen-stdio
+bun i -g @upstash/context7-mcp
 ```
 
 Then configure it in your Qwen Code settings.json as shown in the configuration section.
@@ -65,7 +65,7 @@ Then configure it in your Qwen Code settings.json as shown in the configuration 
 For a more lightweight approach without global installation, you can use:
 
 ```bash
-bunx --bun @context7/mcp-qwen-stdio
+bunx --bun @upstash/context7-mcp
 ```
 
 This method runs the package directly without installing it globally, which can be useful for testing or temporary usage.

@@ -37,38 +37,36 @@ Context7 MCP provides extended context management for AI models, allowing them t
 
 There are several ways to install Context7 MCP depending on your preference:
 
-### Option 1: Using Qwen CLI (Recommended)
+### Option 1: Using Global Installation
 
-The recommended way to install Context7 MCP is using the `qwen mcp add` command:
+We install the Context7 MCP as global package.
 
 ```bash
-qwen mcp add @upstash/context7-mcp
+bun i -g @upstash/context7-mcp
 ```
 
-This command will:
-- Install the package globally
-- Configure it in your Qwen Code settings automatically
-- Set up the stdio mode integration
+Check the installation:
 
-### Option 2: Global Installation with Qwen CLI
+```bash
+context7-mcp
+```
+
+Add Context7 MCP to Qwen:
+
+```bash
+qwen mcp add stdio context7-mcp
+```
+
+
+### Option 2: Use Direct with `bunx`
 
 If you prefer to install it globally but still use the Qwen CLI:
 
 ```bash
-qwen mcp add @upstash/context7-mcp --global
+qwen mcp add stdio bunx --bun -y @upstash/context7-mcp
 ```
 
-This is similar to the first option but explicitly specifies global installation.
-
-### Option 3: Runtime Installation with Qwen CLI via Bunx
-
-For a more lightweight approach without global installation, you can use:
-
-```bash
-bunx --bun qwen mcp add @upstash/context7-mcp
-```
-
-This method runs the Qwen CLI directly without installing it globally, which can be useful for testing or temporary usage.
+This is to use the Context7 MCP package directly without installing it.
 
 ## Integrating with Qwen Code CLI
 
@@ -101,7 +99,7 @@ This configuration tells Qwen Code CLI to use `bunx` with the specified argument
 After configuring the integration, you can verify it works by running Qwen Code CLI:
 
 ```bash
-qwen-code
+qwen mcp list
 ```
 
 When you use Qwen Code CLI, it will automatically connect to the Context7 MCP server through the stdio interface.
@@ -137,24 +135,47 @@ qwen mcp list
 
 This will show all configured MCP servers, including Context7 if it was added successfully.
 
+## Context Management
+
+Context7 MCP provides powerful context management capabilities that allow you to store and retrieve information across your development sessions. You can manage your context using the following commands:
+
+```bash
+# List all available contexts
+qwen mcp list-contexts
+
+# Switch to a specific context
+qwen mcp switch-context <context-name>
+
+# Create a new context
+qwen mcp create-context <context-name>
+
+# Delete a context
+qwen mcp delete-context <context-name>
+```
+
+Contexts are particularly useful when working on multiple projects or when you want to maintain separate development environments with different configurations.
+
 ## Troubleshooting
 
-If you encounter issues with the integration:
+If you encounter issues with the Context7 MCP integration:
 
-1. **Check if Context7 MCP is installed**:
+1. Ensure the package is properly installed:
    ```bash
-   which context7-mcp
+   qwen mcp list
+   ```
+   This should show `@upstash/context7-mcp` in the list of installed MCPs.
+
+2. Check that your Qwen Code settings.json has the correct configuration as shown in the configuration section.
+
+3. Restart Qwen Code after making configuration changes.
+
+4. If the MCP isn't loading, try removing and re-adding it:
+   ```bash
+   qwen mcp remove @upstash/context7-mcp
+   qwen mcp add @upstash/context7-mcp
    ```
 
-2. **Verify the settings.json configuration**:
-   ```bash
-   cat $HOME/.qwen/settings.json
-   ```
-
-3. **Test Context7 MCP directly**:
-   ```bash
-   context7-mcp
-   ```
+5. Check the Qwen Code logs for any error messages related to MCP loading.
 
 ## Conclusion
 

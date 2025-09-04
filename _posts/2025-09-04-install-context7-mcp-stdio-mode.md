@@ -40,32 +40,36 @@ To install Context7 MCP in stdio mode, you need to have `bun` installed first:
 ```bash
 # Install bun if not already installed
 curl -fsSL https://bun.sh/install | bash
-
-# Install Context7 MCP globally
-bun install -g @upstash/context7-mcp
 ```
 
-Once installed, you can run Context7 MCP in stdio mode:
+Once bun is installed, you can add Context7 MCP to Qwen using the built-in command:
 
 ```bash
-context7-mcp
+qwen mcp add stdio bunx --bun -y @upstash/context7-mcp
 ```
 
-This starts the MCP server in stdio mode, which communicates through standard input and output streams.
+This command:
+1. Adds a new MCP server in stdio mode
+2. Uses `bunx` to run the Context7 MCP package
+3. Installs `@upstash/context7-mcp` from the npm registry
+4. Configures it automatically in Qwen's settings
 
 ## Integrating with Qwen Code CLI
 
-To integrate Context7 MCP with Qwen Code CLI globally, you need to configure it in the Qwen settings file located at `$HOME/.qwen/settings.json`.
+The `qwen mcp add` command automatically configures Context7 MCP in Qwen's settings file located at `$HOME/.qwen/settings.json`. You can verify the configuration by checking the file:
 
-### Configuring Global Integration
+```bash
+cat $HOME/.qwen/settings.json
+```
 
-Edit the `$HOME/.qwen/settings.json` file to add Context7 MCP as an MCP server:
+You should see an entry similar to:
 
 ```json
 {
   "mcpServers": {
     "Context7": {
-      "command": "context7-mcp"
+      "command": "bunx",
+      "args": ["--bun", "-y", "@upstash/context7-mcp"]
     }
   },
   "selectedAuthType": "qwen-oauth",
@@ -74,7 +78,7 @@ Edit the `$HOME/.qwen/settings.json` file to add Context7 MCP as an MCP server:
 }
 ```
 
-This configuration tells Qwen Code CLI to use the `context7-mcp` command when it needs to access the Context7 MCP server.
+This configuration tells Qwen Code CLI to use `bunx` with the specified arguments when it needs to access the Context7 MCP server.
 
 ### Verifying the Integration
 
@@ -108,6 +112,14 @@ qwen-code
 
 # Qwen will automatically utilize Context7 MCP for enhanced context management
 ```
+
+You can also verify that the MCP server is properly configured by listing the available MCP servers:
+
+```bash
+qwen mcp list
+```
+
+This will show all configured MCP servers, including Context7 if it was added successfully.
 
 ## Troubleshooting
 

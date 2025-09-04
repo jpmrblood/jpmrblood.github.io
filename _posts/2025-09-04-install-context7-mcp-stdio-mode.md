@@ -50,25 +50,25 @@ This command will:
 - Configure it in your Qwen Code settings automatically
 - Set up the stdio mode integration
 
-### Option 2: Global Installation with Bun
+### Option 2: Global Installation with Qwen CLI
 
-If you prefer to install it globally using bun directly:
+If you prefer to install it globally but still use the Qwen CLI:
 
 ```bash
-bun i -g @upstash/context7-mcp
+qwen mcp add @upstash/context7-mcp --global
 ```
 
-Then configure it in your Qwen Code settings.json as shown in the configuration section.
+This is similar to the first option but explicitly specifies global installation.
 
-### Option 3: Runtime Installation with Bunx
+### Option 3: Runtime Installation with Qwen CLI via Bunx
 
 For a more lightweight approach without global installation, you can use:
 
 ```bash
-bunx --bun @upstash/context7-mcp
+bunx --bun qwen mcp add @upstash/context7-mcp
 ```
 
-This method runs the package directly without installing it globally, which can be useful for testing or temporary usage.
+This method runs the Qwen CLI directly without installing it globally, which can be useful for testing or temporary usage.
 
 ## Integrating with Qwen Code CLI
 

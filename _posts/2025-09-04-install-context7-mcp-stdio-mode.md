@@ -135,26 +135,6 @@ qwen mcp list
 
 This will show all configured MCP servers, including Context7 if it was added successfully.
 
-## Context Management
-
-Context7 MCP provides powerful context management capabilities that allow you to store and retrieve information across your development sessions. You can manage your context using the following commands:
-
-```bash
-# List all available contexts
-qwen mcp list-contexts
-
-# Switch to a specific context
-qwen mcp switch-context <context-name>
-
-# Create a new context
-qwen mcp create-context <context-name>
-
-# Delete a context
-qwen mcp delete-context <context-name>
-```
-
-Contexts are particularly useful when working on multiple projects or when you want to maintain separate development environments with different configurations.
-
 ## Troubleshooting
 
 If you encounter issues with the Context7 MCP integration:

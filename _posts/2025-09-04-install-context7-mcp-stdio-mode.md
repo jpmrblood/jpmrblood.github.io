@@ -15,8 +15,8 @@ excerpt: "How to install Context7 MCP with stdio mode and integrate it with Qwen
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
-  teaser: /assets/2025/09/python-wizard.png
-  overlay_image: /assets/2025/09/python-wizard.png
+  teaser: /assets/2025/08/robotic-ai.png
+  overlay_image: /assets/2025/08/robotic-ai.png
 ---
 
 **TL;DR**:

@@ -1,23 +1,22 @@
 ---
 layout: single
-title: "Install Astral UV: Fast Python Package Manager"
+title: "Install Astral UV with the Official Bash Script"
 tags:
   - python
-  - package manager
   - uv
   - astral
+  - package-manager
   - rust
-  - pip
 categories:
   - tech
   - python
   - tools
-excerpt: "How to install Astral UV, a fast Python package manager written in Rust, using the official bash script."
+excerpt: "How to install Astral UV, the ultra-fast Python package manager written in Rust, using the official bash script method."
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
-  teaser: /assets/2025/09/python-wizard.png
-  overlay_image: /assets/2025/09/python-wizard.png
+  teaser: /assets/2025/08/robotic-ai.png
+  overlay_image: /assets/2025/08/robotic-ai.png
 ---
 
 **TL;DR**:

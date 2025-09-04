@@ -33,26 +33,42 @@ Context7 MCP is a Memory Context Provider that enhances AI models with advanced 
 
 Context7 MCP provides extended context management for AI models, allowing them to maintain and utilize larger amounts of contextual information during interactions. It's particularly useful for complex coding tasks that require understanding of extensive project context.
 
-## Installing Context7 MCP in Stdio Mode
+## Installing Context7 MCP
 
-To install Context7 MCP in stdio mode, you need to have `bun` installed first:
+There are several ways to install Context7 MCP depending on your preference:
 
-```bash
-# Install bun if not already installed
-curl -fsSL https://bun.sh/install | bash
-```
+### Option 1: Using Qwen CLI (Recommended)
 
-Once bun is installed, you can add Context7 MCP to Qwen using the built-in command:
+The recommended way to install Context7 MCP is using the `qwen mcp add` command:
 
 ```bash
-qwen mcp add stdio bunx --bun -y @upstash/context7-mcp
+qwen mcp add @context7/mcp-qwen-stdio
 ```
 
-This command:
-1. Adds a new MCP server in stdio mode
-2. Uses `bunx` to run the Context7 MCP package
-3. Installs `@upstash/context7-mcp` from the npm registry
-4. Configures it automatically in Qwen's settings
+This command will:
+- Install the package globally
+- Configure it in your Qwen Code settings automatically
+- Set up the stdio mode integration
+
+### Option 2: Global Installation with Bun
+
+If you prefer to install it globally using bun directly:
+
+```bash
+bun i -g @context7/mcp-qwen-stdio
+```
+
+Then configure it in your Qwen Code settings.json as shown in the configuration section.
+
+### Option 3: Runtime Installation with Bunx
+
+For a more lightweight approach without global installation, you can use:
+
+```bash
+bunx --bun @context7/mcp-qwen-stdio
+```
+
+This method runs the package directly without installing it globally, which can be useful for testing or temporary usage.
 
 ## Integrating with Qwen Code CLI
 

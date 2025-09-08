@@ -347,3 +347,31 @@ Github Spec Kit represents more than just a new tool—it's a fundamental rethin
 The methodology scales from small features to enterprise applications, works across technology stacks, and integrates seamlessly with modern development workflows. As AI continues to advance, Spec-Driven Development will become increasingly essential for teams looking to maintain competitive advantage in software delivery.
 
 Whether you're a solo developer, a startup team, or an enterprise organization, Github Spec Kit provides the framework to transform your development process from code-centric to specification-driven, enabling faster, more reliable, and more maintainable software delivery.
+
+## Further Reading
+
+### Official Documentation
+- **[GitHub Spec Kit Repository](https://github.com/github/spec-kit)** - Complete source code, documentation, and examples
+- **[Spec-Driven Development Guide](/github/spec-kit/blob/main/spec-driven.md)** - Comprehensive methodology walkthrough
+- **[Installation Guide](https://github.com/github/spec-kit#⚡-get-started)** - Step-by-step setup instructions
+
+### Related Resources
+- **[Claude Code Documentation](https://www.anthropic.com/claude-code)** - Learn about the primary AI agent for Spec-Driven Development
+- **[GitHub Copilot](https://github.com/features/copilot)** - Alternative AI coding assistant
+- **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** - Another supported AI agent option
+
+### Community and Learning
+- **[GitHub Issues](https://github.com/github/spec-kit/issues)** - Community discussions and troubleshooting
+- **[GitHub Discussions](https://github.com/github/spec-kit/discussions)** - Share experiences and ask questions
+- **[Software Development Life Cycle (SDLC)](https://en.wikipedia.org/wiki/Software_development_process)** - Understanding traditional development methodologies
+
+### Advanced Topics
+- **[AI-Assisted Development Best Practices](https://github.blog/)** - GitHub's insights on AI in software development
+- **[Specification Writing Guide](https://www.agilealliance.org/glossary/specifications/)** - Best practices for writing effective specifications
+- **[Test-Driven Development (TDD)](https://martinfowler.com/bliki/TestDrivenDevelopment.html)** - Complementary development approach
+
+### Case Studies and Examples
+- **[Taskify Example](https://github.com/github/spec-kit/blob/main/README.md#detailed-process)** - Complete walkthrough of building a task management application
+- **[Kanban Board Implementation](https://github.com/github/spec-kit/blob/main/README.md#step-1-bootstrap-the-project)** - Real-world project example with detailed steps
+
+For the latest updates and community contributions, follow the [GitHub Spec Kit repository](https://github.com/github/spec-kit) and join the growing community of developers embracing Spec-Driven Development.

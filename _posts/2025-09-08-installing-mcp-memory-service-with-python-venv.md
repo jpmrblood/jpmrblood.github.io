@@ -36,13 +36,6 @@ header:
 
 # Installing MCP Memory Service with Python venv: Complete Local Setup Guide
 
-<div style="text-align: center; margin: 2rem 0;">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=placeholder" title="YouTube video player" frameborder="0" allow="accelerator; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="max-width: 100%;"></iframe>
-  <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
-    <em>Reference video: "MCP Memory Service Installation Tutorial"</em>
-  </p>
-</div>
-
 The MCP Memory Service is a powerful universal memory service that provides semantic search and persistent storage for AI assistants. It works seamlessly with Claude Desktop, VS Code, Cursor, and over 13 other AI applications, enabling them to maintain context across conversations and access previously stored knowledge.
 
 This comprehensive guide will walk you through installing the MCP Memory Service using Python's virtual environment (venv) on your local machine. This approach ensures a clean, isolated installation that won't conflict with your system Python or other projects.

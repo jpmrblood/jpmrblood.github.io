@@ -17,8 +17,8 @@ excerpt: "Clear definitions of method, methodology, and framework in project man
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
-  teaser: /assets/2025/08/robotic-ai.png
-  overlay_image: /assets/2025/08/robotic-ai.png
+  teaser: /assets/2025/09/software-development.png
+  overlay_image: /assets/2025/09/software-development.png
 ---
 
 **TL;DR**:

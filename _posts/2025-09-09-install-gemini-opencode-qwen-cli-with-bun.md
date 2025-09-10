@@ -74,7 +74,7 @@ go version
 
 ## Installing GEMINI CLI
 
-GEMINI CLI is Google's command-line interface for interacting with Gemini AI models. It provides a powerful way to leverage Google's AI capabilities directly from your terminal.
+GEMINI CLI is Google's command-line interface for interacting with Gemini AI models. It provides a powerful way to leverage Google's AI capabilities directly from your terminal. Repository: [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
 
 ```bash
 # Install GEMINI CLI globally using Bun
@@ -89,9 +89,9 @@ gemini-cli config set api-key YOUR_GOOGLE_API_KEY
 
 ### VSCode Integration for GEMINI CLI
 
-- Install "Gemini CLI Companion" extension from VSCode marketplace
+- Install from GitHub: [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
 - Use command line: `gemini-cli` in integrated terminal
-- Enhanced integration with VSCode workspace and editor
+- Works directly in VSCode terminal
 
 ### Context File for GEMINI CLI
 
@@ -99,40 +99,54 @@ GEMINI CLI uses `GEMINI.md` for Google Gemini-specific configuration and project
 
 ## Installing OpenCode CLI
 
-OpenCode CLI is an AI coding assistant that understands your project context and can help with code generation, refactoring, and explanation.
+OpenCode CLI is an AI coding assistant from SST that understands your project context and can help with code generation, refactoring, and explanation. Repository: [sst/opencode](https://github.com/sst/opencode)
 
 ```bash
-# Install OpenCode CLI globally using Bun
-bun i -g opencode-ai
+# Install OpenCode CLI globally using Bun (one of several methods)
+bun install -g opencode-ai
+
+# Alternative installation methods:
+# curl -fsSL https://opencode.ai/install | bash
+# npm install -g opencode-ai
+# pnpm install -g opencode-ai
+# yarn global add opencode-ai
 
 # Verify installation
 opencode --version
-
-# Configure with your preferred AI provider
-opencode config set provider openai
-opencode config set api-key YOUR_OPENAI_API_KEY
 ```
 
 ### VSCode Integration for OpenCode CLI
 
-- Install "OpenCode" extension from VSCode marketplace
+- Install from GitHub: [sst/opencode](https://github.com/sst/opencode)
 - Use command line: `opencode` in integrated terminal
-- Access via VSCode command palette or extension UI
+- Works directly in VSCode terminal
 
 ### Context File for OpenCode CLI
 
 OpenCode CLI uses `AGENTS.md` for project-specific guidelines, build commands, and code style conventions.
 
+### Project Initialization for OpenCode CLI
+
+After authentication, navigate to your project directory and initialize OpenCode:
+
+```bash
+cd /path/to/project
+opencode
+# Then in the TUI, type '/init' to initialize the project
+```
+
+This creates an `AGENTS.md` file that helps OpenCode understand your project structure.
+
 ## Installing Qwen Code CLI
 
-Qwen Code CLI is Alibaba's AI coding assistant that can be integrated with MCP (Model Context Protocol) for enhanced context management.
+Qwen Code CLI is Alibaba's AI coding assistant based on the Qwen language model. Repository: [QwenLM/qwen-code](https://github.com/QwenLM/qwen-code)
 
 ```bash
 # Install Qwen Code CLI globally using Bun
-bun i -g qwen-code
+bun i -g @qwenlm/qwen-code
 
 # Verify installation
-qwen-code --version
+qwen --version
 
 # Configure with your preferred model
 qwen config set model qwen-plus
@@ -141,8 +155,8 @@ qwen config set api-key YOUR_ALIBABA_API_KEY
 
 ### VSCode Integration for Qwen Code CLI
 
-- Use command line: `qwen-code` in integrated terminal
-- No dedicated VSCode plugin needed
+- Install from GitHub: [QwenLM/qwen-code](https://github.com/QwenLM/qwen-code)
+- Use command line: `qwen` in integrated terminal
 - Works directly in VSCode terminal
 
 ### Context File for Qwen Code CLI
@@ -191,7 +205,7 @@ Since Crush CLI works with standard input/output streams, it integrates seamless
 
 ```bash
 # Use Crush to preprocess data before sending to Qwen Code CLI
-crush "select description from issues.csv where status = 'open'" | qwen-code "Generate bug fix suggestions for these issues"
+crush "select description from issues.csv where status = 'open'" | qwen "Generate bug fix suggestions for these issues"
 
 # Process AI-generated JSON with Crush
 gemini-cli ask "List the top 10 programming languages with their popularity scores" --json | crush "select language, score from input order by score desc"
@@ -201,7 +215,7 @@ gemini-cli ask "List the top 10 programming languages with their popularity scor
 
 1. Install AI tools globally with Bun:
    ```bash
-   bun i -g @google/gemini-cli@latest opencode-ai qwen-code
+   bun install -g @google/gemini-cli@latest opencode-ai @qwenlm/qwen-code
    ```
 
 2. Install Crush CLI with Golang:
@@ -211,14 +225,19 @@ gemini-cli ask "List the top 10 programming languages with their popularity scor
 
 3. Configure each AI tool with your respective API keys:
    ```bash
+   # Configure GEMINI CLI
    gemini-cli config set api-key YOUR_GOOGLE_API_KEY
-   opencode config set api-key YOUR_OPENAI_API_KEY
+   
+   # Configure OpenCode CLI
+   opencode auth login
+   
+   # Configure Qwen Code CLI
    qwen config set api-key YOUR_ALIBABA_API_KEY
    ```
 
 4. Open your project in VSCode or any terminal
 
-4. Use the tools in your terminal:
+5. Use the tools in your terminal:
    ```bash
    # Using GEMINI CLI
    gemini-cli ask "Explain how to use async/await in JavaScript"
@@ -227,7 +246,7 @@ gemini-cli ask "List the top 10 programming languages with their popularity scor
    opencode "Generate a React component for a todo list"
    
    # Using Qwen Code CLI
-   qwen-code "Refactor this function to be more efficient"
+   qwen "Refactor this function to be more efficient"
    
    # Using Crush CLI for data processing
    echo "name,age\nAlice,30\nBob,25" | crush "select name, age from input where age > 20"
@@ -256,7 +275,7 @@ gemini-cli ask "List the top 10 programming languages with their popularity scor
 - Update all tools regularly:
   ```bash
   # Update Bun-based tools
-  bun update -g @google/gemini-cli@latest opencode-ai qwen-code
+  bun update -g @google/gemini-cli@latest opencode-ai @qwenlm/qwen-code
   
   # Update Crush CLI
   go install github.com/liljencrantz/crush@latest
@@ -311,11 +330,13 @@ Ensure your API keys are correctly configured:
 ```bash
 # Check current configuration
 gemini-cli config list
-opencode config list
+opencode auth login  # For OpenCode, use auth login instead of config commands
 qwen config list
 
 # Reset configuration if needed
 gemini-cli config reset
+# For OpenCode, there is no direct reset command - re-authenticate with:
+# opencode auth login
 ```
 
 ## Conclusion
@@ -323,9 +344,9 @@ gemini-cli config reset
 Installing GEMINI CLI, OpenCode CLI, and Qwen Code CLI with Bun provides a fast and efficient way to access powerful AI coding assistants from your command line. Crush CLI offers excellent data processing capabilities using Golang tooling. With these tools installed globally, you'll have a comprehensive command-line environment for AI assistance and data manipulation.
 
 Each tool offers unique capabilities:
-- **GEMINI CLI** for Google's advanced AI models
-- **OpenCode CLI** for context-aware coding assistance
-- **Qwen Code CLI** for Alibaba's Qwen models with MCP integration
+- **GEMINI CLI** for Google's advanced AI models ([google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli))
+- **OpenCode CLI** for context-aware coding assistance from SST ([sst/opencode](https://github.com/sst/opencode))
+- **Qwen Code CLI** for Alibaba's Qwen models ([QwenLM/qwen-code](https://github.com/QwenLM/qwen-code))
 - **Crush CLI** for powerful data processing with SQL-like syntax
 
 With these tools installed globally via Bun and Golang, you'll have a powerful AI-assisted development and data processing environment at your fingertips.

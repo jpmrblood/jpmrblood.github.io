@@ -92,6 +92,56 @@ According to reports, the initial infection vector was a sophisticated phishing 
 
 The domain `npmjs.help` resolved to IP `185.7.81.108` and used BunnyCDN buckets for infrastructure.
 
+## How Attackers Gained Access and Executed the Attacks
+
+The NPM supply chain attack was executed through a sophisticated multi-stage process that began with social engineering and culminated in the distribution of malicious code to millions of developers worldwide:
+
+### Initial Access Through Phishing
+
+1. **Target Selection**: Attackers identified high-profile NPM package maintainers, particularly those responsible for widely-used packages like `chalk` and `debug`
+2. **Spear Phishing**: Crafted convincing emails that appeared to come from NPM's official support, using the domain `support@npmjs.help`
+3. **Social Engineering**: The emails claimed that the maintainer's 2FA settings needed urgent attention, creating a sense of urgency
+4. **Credential Harvesting**: When maintainers clicked the links, they were directed to a convincing replica of NPM's 2FA setup page
+
+### TOTP Proxy Attack Technique
+
+The most technically sophisticated aspect of this attack was the use of a "TOTP proxy attack":
+
+1. **Real-time Relay**: Instead of simply stealing username and password, the attackers created a real-time relay system
+2. **Live Authentication**: When a maintainer entered their credentials, the attackers would immediately use those credentials on the real NPM website
+3. **2FA Interception**: When the real NPM site generated a 2FA prompt, the attackers would relay that prompt to the maintainer through their fake site
+4. **Code Capture**: When the maintainer entered their 2FA code on the fake site, it was instantly forwarded to the real NPM site
+5. **Session Hijacking**: With both credentials and 2FA code, attackers gained legitimate access to the maintainer's account
+
+### Malware Development and Deployment
+
+Once inside the maintainer accounts, attackers followed a careful deployment strategy:
+
+1. **Code Analysis**: They studied the existing codebase to understand how to embed malicious code without breaking functionality
+2. **Obfuscation**: The malicious JavaScript was heavily obfuscated to avoid detection by automated scanning tools
+3. **Stealth Implementation**: The malware was designed to remain dormant until specific conditions were met (crypto wallet interactions)
+4. **Version Bumping**: Attackers published new versions of the packages (e.g., debug 4.4.1 → 4.4.2, chalk 5.6.0 → 5.6.1)
+5. **Dependency Chain Exploitation**: By compromising core packages like `ansi-styles`, they affected numerous downstream dependencies
+
+### Malware Functionality
+
+The embedded malware had several sophisticated features:
+
+1. **Browser API Hooking**: The code hooked into browser functions like `fetch`, `XMLHttpRequest`, and wallet interfaces
+2. **Address Substitution**: Used Levenshtein distance algorithms to replace cryptocurrency addresses with visually similar attacker addresses
+3. **Wallet Detection**: Monitored for the presence of crypto wallets (MetaMask, Phantom, etc.) to avoid detection
+4. **Transaction Interception**: Modified transaction data at the point of signing, making the changes invisible to users
+5. **Communication Channels**: Established covert communication with command-and-control servers to receive updated target addresses
+
+### Distribution and Impact
+
+The attack's effectiveness came from the trusted nature of the compromised packages:
+
+1. **Automatic Propagation**: Many projects automatically pulled in the new versions through dependency resolution
+2. **Developer Trust**: Since these were well-known, trusted packages, developers had no reason to suspect the updates
+3. **Rapid Distribution**: With hundreds of millions of weekly downloads, the malware spread quickly across the ecosystem
+4. **Targeted Activation**: The malware remained dormant until users interacted with crypto wallets, reducing the chance of detection
+
 ## Indicators of Compromise
 
 Watch for these specific indicators:

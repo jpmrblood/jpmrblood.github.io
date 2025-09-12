@@ -4,10 +4,12 @@ title: Setting Up Open-WebUI with MCP
 tags:
   - openwebui
   - mcp
-  - AI
+  - ai
   - llm
 categories:
-  - notes
+  - ai
+  - tools
+  - tutorial
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"

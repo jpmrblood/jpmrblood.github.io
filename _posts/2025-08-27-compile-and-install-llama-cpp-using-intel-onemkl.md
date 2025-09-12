@@ -5,9 +5,11 @@ tags:
   - llama.cpp
   - Intel
   - OneMKL
-  - AI
+  - ai
 categories:
-  - notes
+  - ai
+  - linux
+  - performance
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"

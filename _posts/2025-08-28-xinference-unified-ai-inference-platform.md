@@ -4,11 +4,13 @@ title: Xinference, A Unified Platform for AI Model Inference
 tags:
   - xinference
   - inference
-  - AI
+  - ai
   - llm
   - multimodals
 categories:
-  - notes
+  - ai
+  - tools
+  - devops
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"

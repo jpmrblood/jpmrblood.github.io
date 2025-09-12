@@ -6,9 +6,9 @@ tags:
   - site
   - cors
 categories:
+  - web
   - linux
-  - apache2
-  - tips
+  - tutorial
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"

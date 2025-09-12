@@ -6,7 +6,9 @@ tags:
   - cas
   - idp
 categories:
-  - cas
+  - security
+  - java
+  - tutorial
 header:
   overlay_filter: "0.5"
   overlay_color: "#000"

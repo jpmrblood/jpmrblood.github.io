@@ -4,10 +4,12 @@ title: Compile and Install llama.cpp using BLIS
 tags:
   - llama.cpp
   - BLIS
-  - AI
+  - ai
   - fedora
 categories:
-  - notes
+  - ai
+  - linux
+  - tutorial
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"

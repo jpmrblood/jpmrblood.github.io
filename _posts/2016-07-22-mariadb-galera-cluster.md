@@ -12,6 +12,11 @@ categories:
   - linux
   - devops
 excerpt: "Complete guide to setting up MariaDB Galera Cluster with HAProxy for high availability. Includes configuration, installation, and load balancing setup for production environments."
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
+  teaser: /assets/haproxy-galera-1.png
+  overlay_image: /assets/haproxy-galera-1.png
 ---
 
 ![HA Proxy encapsulate a Galera cluster for High-Availability solution.](/assets/haproxy-galera-1.png){: .align-center}

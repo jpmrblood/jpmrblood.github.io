@@ -5,7 +5,9 @@ tags:
   - git
   - ssl
 categories:
-  - notes
+  - git
+  - security
+  - tutorial
 header:
   overlay_filter: "0.5"
   overlay_color: "#000"

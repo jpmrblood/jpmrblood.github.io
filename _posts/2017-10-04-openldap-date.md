@@ -7,13 +7,8 @@ categories:
   - ldap
   - terminal
   - php
-  - tips
-header:
-  overlay_color: "#000"
-  overlay_filter: "0.5"
-  teaser: /assets/admin-talk-300x160.jpg
-  overlay_image: /assets/admin-talk-300x160.jpg
-excerpt: Getting LDAP Epoch
+  - tutorial
+excerpt: "How to get LDAP epoch timestamps and convert dates for LDAP directory operations using PHP and command line tools."
 ---
 Run this on the server:
 ```

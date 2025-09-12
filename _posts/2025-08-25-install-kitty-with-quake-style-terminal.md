@@ -2,10 +2,8 @@
 layout: single
 title: Install Kitty with Quake-style Terminal
 tags:
-  - vscode
-  - ai
-  - vibe
-  - coding
+  - terminal
+  - kitty
 categories:
   - notes
 header:

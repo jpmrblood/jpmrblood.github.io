@@ -17,8 +17,8 @@ excerpt: "An in-depth analysis of CMMI DEV maturity levels, exploring the five l
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
-  teaser: /assets/2025/08/robotic-ai.png
-  overlay_image: /assets/2025/08/robotic-ai.png
+  teaser: /assets/2025/09/cmmi-dev.png
+  overlay_image: /assets/2025/09/cmmi-dev.png
 ---
 
 **TL;DR**:

@@ -5,13 +5,10 @@ tags:
   - pdf
   - image
 categories:
-  - notes
-header:
-  overlay_color: "#000"
-  overlay_filter: "0.5"
-  teaser: /assets/the-most-terrifying.png
-  overlay_image: /assets/the-most-terrifying.png
-excerpt: Adding Images to single PDF
+  - tools
+  - tutorial
+  - linux
+excerpt: "How to convert multiple images into a single PDF file using ImageMagick convert command on Linux systems."
 ---
 
 Adding images to pdf:

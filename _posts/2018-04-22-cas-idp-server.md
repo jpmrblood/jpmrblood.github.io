@@ -14,7 +14,7 @@ header:
   overlay_color: "#000"
   teaser: /assets/2018/04/java2.png
   overlay_image: /assets/2018/04/java2.png
-excerpt: Install CAS server.
+excerpt: "Step-by-step guide to installing and configuring Central Authentication Service (CAS) Identity Provider server for enterprise single sign-on solutions."
 ---
 
 # Conventions

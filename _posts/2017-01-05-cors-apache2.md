@@ -14,7 +14,7 @@ header:
   overlay_filter: "0.5"
   teaser: /assets/2017/01/http-cors.png
   overlay_image: /assets/2017/01/http-cors.png
-excerpt: How to enable CORS
+excerpt: "Complete guide to enabling Cross-Origin Resource Sharing (CORS) in Apache2 web server for handling cross-domain requests and API access."
 ---
 Browser keep stricter each days. Now, they insist on CORS. I can't enable it in  .htaccess, must do it in sites-enabled.
 

@@ -4,13 +4,10 @@ title: HAProxy redirect root URL
 tags:
   - haproxy
 categories:
-  - notes
-header:
-  overlay_filter: "0.5"
-  overlay_color: "#000"
-  teaser: /assets/the-most-terrifying.png
-  overlay_image: /assets/the-most-terrifying.png
-excerpt: How to redirect root URL to another URL
+  - devops
+  - web
+  - tutorial
+excerpt: "Configure HAProxy to redirect root URL requests to a specific application path using ACL rules and redirect directives."
 ---
 How to redirect root URL to another URL
 

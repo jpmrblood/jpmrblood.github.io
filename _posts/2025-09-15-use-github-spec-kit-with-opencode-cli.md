@@ -23,6 +23,11 @@ header:
   overlay_image: /assets/2025/09/github-spec-kit.png
 ---
 
+# NOTE:
+On current implementation, Opencode is not usable. Some of the codes are missing from the github. According to the author, the code need to be pushed into the main repo so the template can be working.
+
+Second, Opencode refused to auto-submit to GIT making the journey broken. I was forced to commit a whole bunch of changes in the end of a run. Let's just wait.
+
 **TL;DR**:
 - Install prerequisites: Opencode CLI, Astral UV, Git.
 - Initialize a new Spec Kit project.

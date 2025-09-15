@@ -195,6 +195,8 @@ The integration allows you to use Spec Kit commands directly within QWEN CLI:
 
 ### Configuration for QWEN CLI
 
+**Note**: This section is purely informational. QWEN CLI comes with sensible defaults and typically requires no configuration changes for basic Spec Kit integration. The commands below are optional optimizations for advanced users.
+
 Ensure your QWEN CLI settings support the integration:
 
 ```bash

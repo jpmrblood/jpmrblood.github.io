@@ -330,43 +330,6 @@ uvx --from git+https://github.com/aemr3/spec-kit.git specify check
 # Suggest consolidating to fewer services
 ```
 
-## Performance Optimization
-
-### For Large Projects
-
-```bash
-# Enable parallel research
-export SPEC_KIT_RESEARCH_PARALLEL=true
-
-# Increase Opencode context window
-export OPENCODE_CONTEXT_WINDOW=256k
-
-# Batch task processing
-export SPEC_KIT_TASK_BATCH_SIZE=10
-```
-
-### Memory Management
-
-```bash
-# For systems with limited RAM
-export OPENCODE_MAX_TOKENS=16000
-export SPEC_KIT_MEMORY_LIMIT=512MB
-
-# Clean up old research data
-rm -rf .spec-kit/cache/old_research/
-```
-
-### Network Optimization
-
-```bash
-# Use local model if available
-export OPENCODE_MODEL=local-opencode
-
-# Reduce API calls
-export SPEC_KIT_CACHE_RESEARCH=true
-export SPEC_KIT_REUSE_RESEARCH=7days
-```
-
 ## Security Considerations
 
 ### API Key Protection

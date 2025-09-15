@@ -20,7 +20,7 @@ header:
   overlay_color: "#000"
   overlay_filter: "0.5"
   teaser: /assets/2025/09/github-spec-kit.png
-   overlay_image: /assets/2025/09/github-spec-kit.png
+  overlay_image: /assets/2025/09/github-spec-kit.png
 ---
 
 **TL;DR**:

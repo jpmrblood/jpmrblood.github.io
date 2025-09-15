@@ -20,140 +20,73 @@ header:
 ---
 
 **TL;DR**:
-- **Astral UV**: Fast Python package manager written in Rust
-- **10-100x faster**: Than pip
-- **Single tool**: Replaces pip, pip-tools, pipx, poetry, pyenv, twine, and virtualenv
-- **Official installation**: Use the bash script on macOS/Linux
+- Install Astral UV using the official bash script.
+- Verify installation with version check.
+- Use UV for virtual environments and package management.
 
-# Astral UV: Fast Python Package Management
+# Step-by-Step Guide to Install Astral UV
 
-Astral UV is a fast Python package and project manager written in Rust. It serves as a drop-in replacement for multiple Python tools:
+## Step 1: Install UV
 
-- **pip**: Package installation
-- **pip-tools**: Dependency management
-- **pipx**: Tool installation
-- **poetry**: Project management
-- **pyenv**: Python version management
-- **twine**: Package publishing
-- **virtualenv**: Virtual environments
-
-## Why Use Astral UV?
-
-### Performance
-
-UV is significantly faster than traditional tools due to its Rust implementation:
-
-- **10-100x faster** than pip for dependency resolution and installation
-- Native binary execution without Python interpreter startup time
-- Parallelized operations
-- Minimal memory footprint
-
-### Features
-
-UV provides a complete Python development workflow:
-
-- Dependency resolution with universal lockfiles
-- Virtual environment management
-- Script execution with inline dependency metadata
-- Python version installation and switching
-- Self-updating capabilities
-- Cross-platform support (macOS, Linux, Windows)
-
-## Installing Astral UV with the Official Bash Script
-
-The recommended way to install UV on macOS and Linux systems is using the official standalone installer script.
-
-### Installation Command
-
-To install UV using the official bash script, run:
+Run the official bash script to install UV on macOS/Linux.
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-This command:
-1. Downloads the official installation script from Astral's servers
-2. Executes it with `sh` to install the UV binary
-3. Sets up your PATH automatically
-4. Enables self-update functionality
-
-### Windows Installation
-
-For Windows users, use the PowerShell script:
+For Windows, use PowerShell:
 
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-### Verifying Installation
+## Step 2: Verify Installation
 
-Check that UV is properly installed:
+Check that UV is installed correctly.
 
 ```bash
 uv --version
 ```
 
-## Benefits of the Standalone Installer
+## Step 3: Basic Usage
 
-Using the official bash script provides several advantages:
+Create a virtual environment and install packages.
 
-### 1. No Prerequisites
-- No need for Rust or Python to be pre-installed
-- Works on minimal systems
-- Single binary installation
-
-### 2. Self-Update Capability
-Once installed via the script, UV can update itself:
-```bash
-uv self update
-```
-
-### 3. Optimized Binary
-- Direct binary installation without Python interpreter overhead
-- Faster startup times
-- Better performance compared to PyPI installations
-
-## Alternative Installation Methods
-
-UV can also be installed via other methods:
-
-### PyPI Installation
-```bash
-# With pip
-pip install uv
-
-# Or with pipx (recommended for tool installation)
-pipx install uv
-```
-
-### Docker Usage
-UV can also be used via Docker:
-```dockerfile
-FROM ghcr.io/astral-sh/uv:latest
-```
-
-## Getting Started with UV
-
-After installation, you can start using UV for common tasks:
-
-### Creating a Virtual Environment
 ```bash
 uv venv myproject
-source myproject/bin/activate
+source myproject/bin/activate  # On Windows: myproject\Scripts\activate
+uv pip install requests
 ```
 
-### Installing Packages
+## Usage Examples
+
+### Basic Package Installation
+
+Install packages in a virtual environment.
+
 ```bash
-uv pip install requests numpy pandas
+uv pip install numpy pandas matplotlib
 ```
 
-### Running Python Scripts
+### Running Scripts
+
+Execute Python scripts with dependencies.
+
 ```bash
 uv run python script.py
 ```
 
-## Conclusion
+### Project Management
 
-Astral UV is a fast, comprehensive tool for Python development that replaces multiple traditional tools. Installing it with the official bash script provides the best experience with automatic updates and optimal performance.
+Initialize a new Python project.
 
-Try it out by running the installation command and see the performance improvements in your Python projects.
+```bash
+uv init myproject
+cd myproject
+uv add requests
+```
+
+# References
+
+- [Astral UV Official Documentation](https://docs.astral.sh/uv/)
+- [Astral UV GitHub Repository](https://github.com/astral-sh/uv)

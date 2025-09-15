@@ -217,43 +217,6 @@ While primarily designed for QWEN CLI, the setup is compatible with:
 - **GitHub Copilot**: Use `--ai copilot` for VS Code integration
 - **Cursor**: Use `--ai cursor` for Cursor IDE integration
 
-## Advanced Configuration
-
-### Environment Variables
-
-```bash
-# Spec Kit Configuration
-export SPEC_KIT_AI_AGENT=qwen
-export SPEC_KIT_SCRIPT_TYPE=sh
-export SPEC_KIT_DEBUG=true
-
-# QWEN CLI Configuration
-export QWEN_MODEL=qwen-coder-plus
-export QWEN_CONTEXT_WINDOW=128k
-export QWEN_TIMEOUT=600000  # 10 minutes
-```
-
-### Custom Configuration Files
-
-Create a `.env` file in your project root:
-
-```bash
-# .env file for Spec Kit + QWEN integration
-SPEC_KIT_AI_AGENT=qwen
-SPEC_KIT_CONSTITUTION_STRICT=true
-QWEN_MODEL=qwen-coder-plus
-QWEN_MAX_TOKENS=32000
-```
-
-### Performance Tuning
-
-```bash
-# Optimize for large specifications
-export QWEN_MAX_TOKENS=64000
-export SPEC_KIT_RESEARCH_PARALLEL=true
-export SPEC_KIT_TASK_BATCH_SIZE=5
-```
-
 ## Troubleshooting Common Issues
 
 ### Initialization Failures

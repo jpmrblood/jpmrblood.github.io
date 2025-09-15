@@ -30,6 +30,27 @@ header:
 - **Key Features**: Spec generation, AI agent integration, constitution compliance, parallel task execution
 - **Prerequisites**: Opencode CLI, Astral UV, Git
 
+## Initialize Spec Project
+
+#### Option A: New Project Directory
+
+To create a new project with GitHub Spec Kit configured for Opencode CLI:
+
+```bash
+uvx --from git+https://github.com/aemr3/spec-kit.git specify init --ai opencode <PROJECT_NAME>
+cd <PROJECT_NAME>
+```
+
+Replace `<PROJECT_NAME>` with your desired project name.
+
+#### Option B: Current Directory
+
+If you prefer to initialize in your current working directory:
+
+```bash
+uvx --from git+https://github.com/aemr3/spec-kit.git specify init --ai opencode --here
+```
+
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
@@ -123,27 +144,6 @@ opencode --version
 
 # Verify UV is installed
 uv --version
-```
-
-### Step 2: Initialize Spec Project
-
-#### Option A: New Project Directory
-
-To create a new project with GitHub Spec Kit configured for Opencode CLI:
-
-```bash
-uvx --from git+https://github.com/aemr3/spec-kit.git specify init --ai opencode <PROJECT_NAME>
-cd <PROJECT_NAME>
-```
-
-Replace `<PROJECT_NAME>` with your desired project name.
-
-#### Option B: Current Directory
-
-If you prefer to initialize in your current working directory:
-
-```bash
-uvx --from git+https://github.com/aemr3/spec-kit.git specify init --ai opencode --here
 ```
 
 ### Step 3: Verify Configuration

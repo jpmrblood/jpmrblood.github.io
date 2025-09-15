@@ -319,43 +319,6 @@ git config --list
 # Suggest consolidating to 3 or fewer services
 ```
 
-## Performance Optimization
-
-### For Large Projects
-
-```bash
-# Enable parallel research
-export SPEC_KIT_RESEARCH_PARALLEL=true
-
-# Increase QWEN context window
-export QWEN_CONTEXT_WINDOW=256k
-
-# Batch task processing
-export SPEC_KIT_TASK_BATCH_SIZE=10
-```
-
-### Memory Management
-
-```bash
-# For systems with limited RAM
-export QWEN_MAX_TOKENS=16000
-export SPEC_KIT_MEMORY_LIMIT=512MB
-
-# Clean up old research data
-rm -rf .spec-kit/cache/old_research/
-```
-
-### Network Optimization
-
-```bash
-# Use local model if available
-export QWEN_MODEL=local-qwen-coder
-
-# Reduce API calls
-export SPEC_KIT_CACHE_RESEARCH=true
-export SPEC_KIT_REUSE_RESEARCH=7days
-```
-
 ## Security Considerations
 
 ### API Key Protection

@@ -60,15 +60,16 @@ Now, configure OpenCode to work with the Spec Kit files. Open the project in VSC
 
 ```text
 This is a spec-driven project created using Claude. The goal is to change any reference to claude code to you (opencode).
+
 1. Move `.claude/commands` folder to `.opencode/command`
 2. Remove the empty .claude folder
-3. Search in `.opencode` and `.specify` folders for any reference to "claude" and change it to "opencode"
+3. Search in .opencode and .specify directories for any reference to “claude”, see the pattern and add “opencode” also.
 4. Exception for file used for memory: CLAUDE.md → AGENTS.md
 ```
 
 NOTE: Special for this prompt, I use code block instead of quote block. The usage of backtick is important. I need to test this over and over so the prompt is always conistent. Using quote or single quote will make the LLM **(Grok Code Fast I)** put the trailing `s`. It will copy `.claude/commands` --> `.opencode/commands`.
 
-OpenCode will modify the `.claude` and `.specify` files to be compatible with its format, adding agent and model selection parameters.
+OpenCode will modify the `.claude` and `.specify` files to be compatible with its format. The command also will not obstrusive and retains the Claude Code references.
 
 ## Step 3: Define the Project's Constitution
 

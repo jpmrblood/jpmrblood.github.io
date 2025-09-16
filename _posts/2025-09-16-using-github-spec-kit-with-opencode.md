@@ -49,7 +49,7 @@ First, create your project structure using the `specify` command-line tool with 
 2. Run the following command to initialize with Claude template (which OpenCode will adapt):
 
 ```bash
-uvx --from git+https:/**/github**.com**/github****/spec**-kit.git specify init --ai claude --script sh --ignore-agent-tools --here
+uvx --from git+https://github.com/github/spec-kit.git specify init --ai claude --script sh --ignore-agent-tools --here
 ```
 
 3. The tool will create the necessary files and directories for spec-driven development.
@@ -131,7 +131,7 @@ Once implementation is complete:
 1. Run the development server:
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 2. Open your browser to `http//localhost:3000` to see the completed application.
@@ -164,6 +164,6 @@ Integrating GitHub Spec Kit with OpenCode creates a powerful workflow for spec-d
 
 ## References
 
-- [GitHub Spec Kit Repository](https:/**/github**.com**/github****/spec**-kit)
-- [OpenCode Documentation](https:/**/opencode**.ai)
-- [Spec-Driven Development Methodology](https:/**/github**.com**/github****/spec**-kit**/blob****/main****/spec**-driven.md)
+- [GitHub Spec Kit Repository](https://github.com/github/spec-kit)
+- [OpenCode Documentation](https://opencode.ai)
+- [Spec-Driven Development Methodology](https://github.com/github/spec-kit/blob/main/spec-driven.md)

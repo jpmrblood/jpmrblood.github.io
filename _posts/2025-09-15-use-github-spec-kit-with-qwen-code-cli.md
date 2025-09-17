@@ -59,6 +59,10 @@ After initialization, rename the `.gemini` directory to `.qwen` for QWEN CLI com
 mv .gemini .qwen
 ```
 
+Open Qwen Code CLI in VSCode and prompt this:
+
+> This is a spec-driven development scaffolded for Gemini. Find Gemini reference in @.specify/  and copy the syntax for Qwen Code (you).
+
 Now, all GitHub Spec Kit commands are available in QWEN Code CLI.
 
 ## Usage Examples

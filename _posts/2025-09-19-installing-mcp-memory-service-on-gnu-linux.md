@@ -116,6 +116,98 @@ sudo python3 install.py --service
 sudo python3 scripts/install_service.py
 ```
 
+### Docker Service Installation
+
+For containerized deployment using Docker:
+
+#### Prerequisites
+Ensure Docker and Docker Compose are installed:
+
+```bash
+# Install Docker
+sudo apt update
+sudo apt install docker.io docker-compose
+sudo systemctl start docker
+sudo systemctl enable docker
+
+# Add user to docker group (optional, avoids sudo)
+sudo usermod -aG docker $USER
+# Logout and login again for group changes to take effect
+```
+
+#### Quick Docker Setup
+
+**For MCP Protocol integration (Claude Desktop/VS Code):**
+
+```bash
+# Clone the repository (if not already done)
+git clone https://github.com/doobidoo/mcp-memory-service.git
+cd mcp-memory-service
+
+# Start with Docker Compose
+docker-compose up -d
+```
+
+**For HTTP API access (REST API/Web Dashboard):**
+
+```bash
+# Start with HTTP API enabled
+docker-compose -f docker-compose.http.yml up -d
+
+# Verify the service is running
+curl http://localhost:8000/api/health
+```
+
+#### Docker Configuration
+
+Create a `.env` file in the project directory for customization:
+
+```bash
+# Storage backend (SQLite-vec recommended for Docker)
+MCP_MEMORY_STORAGE_BACKEND=sqlite_vec
+
+# HTTP API settings
+MCP_HTTP_ENABLED=true
+MCP_HTTP_PORT=8000
+
+# Security (generate a secure key)
+MCP_API_KEY=your-secure-api-key-here
+
+# Optional: Enable HTTPS
+MCP_HTTPS_ENABLED=true
+```
+
+#### Docker Service Management
+
+```bash
+# Start the service
+docker-compose up -d
+
+# Stop the service
+docker-compose down
+
+# View logs
+docker-compose logs -f
+
+# Restart the service
+docker-compose restart
+
+# Update the service
+docker-compose pull && docker-compose up -d
+```
+
+#### Docker with GPU Support
+
+For GPU acceleration in Docker:
+
+```bash
+# NVIDIA GPU
+docker-compose -f docker-compose.gpu.yml up -d
+
+# AMD GPU (ROCm)
+docker-compose -f docker-compose.rocm.yml up -d
+```
+
 ## Configuration
 
 ### Storage Backend Selection

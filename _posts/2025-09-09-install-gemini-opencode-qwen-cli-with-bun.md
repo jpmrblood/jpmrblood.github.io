@@ -25,13 +25,13 @@ header:
 ---
 
 **TL;DR**:
-- Install AI CLI tools using their respective methods
-- Configure with API keys and verify installation
-- Use for AI-assisted development and data processing
+- Install each AI CLI tool individually with proper commands
+- Configure API keys for each tool separately
+- Use tools for AI-assisted development and data processing
 
-# Step-by-Step Installation Guide
+# Tool-by-Tool Installation Guide
 
-## Step 1: Install Prerequisites
+## Prerequisites
 
 ### Install Bun Runtime
 
@@ -52,75 +52,99 @@ brew install go
 choco install golang
 ```
 
-## Step 2: Install AI CLI Tools
+## GEMINI CLI
 
-### Install GEMINI CLI
+### Installation
 
 ```bash
 npm install -g @google/gemini-cli
 ```
 
-### Install OpenCode CLI
-
-```bash
-curl -fsSL https://opencode.ai/install | bash
-```
-
-### Install Qwen Code CLI
-
-```bash
-npm install -g @qwen-code/qwen-code@latest
-```
-
-### Install Crush CLI
-
-```bash
-go install github.com/liljencrantz/crush@latest
-```
-
-## Step 3: Verify Installation
+### Verify Installation
 
 ```bash
 gemini --version
-opencode --version
-qwen --version
-crush --version
 ```
 
-## Step 4: Configure API Keys
+### Configuration
 
 ```bash
-# GEMINI CLI
 gemini config set api-key YOUR_GOOGLE_API_KEY
-
-# OpenCode CLI
-opencode auth login
-
-# Qwen Code CLI
-qwen config set api-key YOUR_ALIBABA_API_KEY
 ```
 
-## Step 5: Basic Usage
-
-### GEMINI CLI
+### Basic Usage
 
 ```bash
 gemini ask "Explain async/await in JavaScript"
 ```
 
-### OpenCode CLI
+## OpenCode CLI
+
+### Installation
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+### Verify Installation
+
+```bash
+opencode --version
+```
+
+### Configuration
+
+```bash
+opencode auth login
+```
+
+### Basic Usage
 
 ```bash
 opencode "Generate a React component"
 ```
 
-### Qwen Code CLI
+## Qwen Code CLI
+
+### Installation
+
+```bash
+npm install -g @qwen-code/qwen-code@latest
+```
+
+### Verify Installation
+
+```bash
+qwen --version
+```
+
+### Configuration
+
+```bash
+qwen config set api-key YOUR_ALIBABA_API_KEY
+```
+
+### Basic Usage
 
 ```bash
 qwen "Refactor this function"
 ```
 
-### Crush CLI
+## Crush CLI
+
+### Installation
+
+```bash
+go install github.com/liljencrantz/crush@latest
+```
+
+### Verify Installation
+
+```bash
+crush --version
+```
+
+### Basic Usage
 
 ```bash
 echo "name,age\nAlice,30\nBob,25" | crush "select name, age from input where age > 20"

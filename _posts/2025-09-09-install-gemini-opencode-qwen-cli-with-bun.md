@@ -352,6 +352,51 @@ gemini config reset
 # opencode auth login
 ```
 
+## References
+
+This guide is based on official documentation and repositories for each tool mentioned:
+
+### AI CLI Tools
+
+- **GEMINI CLI**
+  - Repository: [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli)
+  - Documentation: [GitHub README](https://github.com/google-gemini/gemini-cli#readme)
+  - Installation Guide: [npm package](https://www.npmjs.com/package/@google/gemini-cli)
+
+- **OpenCode CLI**
+  - Repository: [sst/opencode](https://github.com/sst/opencode)
+  - Official Website: [opencode.ai](https://opencode.ai)
+  - Installation Guide: [Official Install Script](https://opencode.ai/install)
+  - Documentation: [GitHub README](https://github.com/sst/opencode#readme)
+
+- **Qwen Code CLI**
+  - Repository: [QwenLM/qwen-code](https://github.com/QwenLM/qwen-code)
+  - Documentation: [GitHub README](https://github.com/QwenLM/qwen-code#readme)
+  - Installation Guide: [npm package](https://www.npmjs.com/package/@qwen-code/qwen-code)
+
+### Runtime and Package Managers
+
+- **Bun Runtime**
+  - Official Website: [bun.sh](https://bun.sh)
+  - Installation Guide: [Bun Installation](https://bun.sh/docs/installation)
+  - GitHub Repository: [oven-sh/bun](https://github.com/oven-sh/bun)
+
+- **Golang**
+  - Official Website: [golang.org](https://golang.org)
+  - Installation Guide: [Go Installation](https://golang.org/doc/install)
+
+### Data Processing Tools
+
+- **Crush CLI**
+  - Repository: [liljencrantz/crush](https://github.com/liljencrantz/crush)
+  - Documentation: [GitHub README](https://github.com/liljencrantz/crush#readme)
+
+### Package Managers and Installation Methods
+
+- **npm**: [npmjs.com](https://www.npmjs.com)
+- **Homebrew**: [brew.sh](https://brew.sh)
+- **Chocolatey**: [chocolatey.org](https://chocolatey.org)
+
 ## Conclusion
 
 Installing GEMINI CLI, OpenCode CLI, and Qwen Code CLI with Bun provides a fast and efficient way to access powerful AI coding assistants from your command line. Crush CLI offers excellent data processing capabilities using Golang tooling. With these tools installed globally, you'll have a comprehensive command-line environment for AI assistance and data manipulation.

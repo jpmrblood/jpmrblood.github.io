@@ -284,6 +284,71 @@ Whether you're building software, writing creative content, developing business 
 
 **Ready to experience the breakthrough?** Start with the one-command installation and transform your development workflow today.
 
+# References
+
+This article is based on information from the official BMAD-METHOD™ project and related resources:
+
+## BMAD-METHOD™ Project
+
+- **Official Repository**: [BMAD-METHOD GitHub](https://github.com/bmad-code-org/BMAD-METHOD)
+  - Stars: 12,400+ ⭐
+  - Forks: 2,000+
+  - Comprehensive AI agent framework for development
+
+- **Full Stack Team File**: [team-fullstack.txt](https://github.com/bmad-code-org/BMAD-METHOD/blob/main/dist/teams/team-fullstack.txt)
+  - Complete agent configuration for full-stack development
+  - Ready-to-use AI agent setup
+
+## Community and Support
+
+- **Discord Community**: [discord.gg/gk8jAdXWmj](https://discord.gg/gk8jAdXWmj)
+  - Active community for BMAD-METHOD users
+  - Support, discussions, and collaboration
+
+- **GitHub Discussions**: [BMAD-METHOD Discussions](https://github.com/bmad-code-org/BMAD-METHOD/discussions)
+  - Community-driven Q&A and feature requests
+  - Share experiences and get help
+
+- **YouTube Channel**: [@BMadCode](https://www.youtube.com/@BMadCode)
+  - Video tutorials and demonstrations
+  - Educational content about BMAD-METHOD
+
+## Technical Resources
+
+- **Mermaid.js**: [mermaid.js.org](https://mermaid.js.org/)
+  - Diagram rendering library used for workflow visualizations
+  - Version 10.6.1 used in this article
+
+- **Node.js Package**: [npx bmad-method](https://www.npmjs.com/package/bmad-method)
+  - Official npm package for BMAD-METHOD tools
+  - One-command installation system
+
+## Installation and Tools
+
+- **Codebase Flattener**: Built-in tool for AI-optimized project analysis
+  - Respects `.gitignore` patterns
+  - Binary file detection and exclusion
+  - Git-aware file discovery
+
+- **CLI Tools**: Command-line utilities for development workflows
+  - Modular agent system
+  - File-based communication
+  - Expansion pack architecture
+
+## Related Technologies
+
+- **AI Agents**: Multi-agent collaboration framework
+- **Context Preservation**: File-based knowledge management
+- **Domain Expansion**: Universal framework for any field
+- **Scalability**: From solo projects to enterprise development
+
+## Performance Metrics
+
+- **Development Speed**: 3-5x faster project completion
+- **Code Quality**: Consistent architecture and implementation patterns
+- **Planning Accuracy**: Detailed specifications reduce rework
+- **Learning Curve**: Intuitive agent collaboration model
+
 ---
 
 *BMAD-METHOD™ is a trademark of BMad Code, LLC. This article is for informational purposes and not affiliated with the official project.*

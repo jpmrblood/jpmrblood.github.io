@@ -315,10 +315,6 @@ This article is based on information from the official BMAD-METHOD™ project an
 
 ## Technical Resources
 
-- **Mermaid.js**: [mermaid.js.org](https://mermaid.js.org/)
-  - Diagram rendering library used for workflow visualizations
-  - Version 10.6.1 used in this article
-
 - **Node.js Package**: [npx bmad-method](https://www.npmjs.com/package/bmad-method)
   - Official npm package for BMAD-METHOD tools
   - One-command installation system

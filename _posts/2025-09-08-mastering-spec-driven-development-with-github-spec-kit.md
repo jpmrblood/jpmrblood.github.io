@@ -2,16 +2,20 @@
 layout: single
 title: Mastering Spec-Driven Development with Github Spec Kit
 tags:
+  - ai
+  - artificial-intelligence
+  - ai-methodologies
   - spec-driven-development
   - github-spec-kit
-  - ai
-  - coding
+  - workflow-engineering
+  - development-workflow
+  - ai-powered-development
   - productivity
-  - software-development
+  - ai-development-tools
 categories:
-  - tech
-  - ai
-  - programming
+  - ai-methodologies
+  - ai-development-tools
+  - productivity
 excerpt: "Transform your software development workflow with Github Spec Kit. Learn how Spec-Driven Development flips traditional coding by making specifications executable, enabling faster, higher-quality software delivery through AI-powered development processes."
 header:
   overlay_color: "#000"

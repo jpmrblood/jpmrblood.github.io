@@ -3,6 +3,7 @@ layout: single
 title: "Developing AI Systems Using CMMI DEV Strategy: A Comprehensive Framework"
 tags:
   - ai
+  - artificial-intelligence
   - cmmi
   - dev
   - machine-learning
@@ -12,8 +13,13 @@ tags:
   - ai-ethics
   - security
   - ai-security
+  - ethics
+  - responsible-ai
+  - ai-processes
+  - ai-ethics-security
 categories:
-  - ai
+  - ai-processes
+  - ai-ethics-security
   - software-engineering
   - process-management
   - security

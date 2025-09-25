@@ -7,17 +7,24 @@ header:
   overlay_filter: 0.5
   caption: "Photo credit: [**AI Development Workflow**](https://jpmrblood.github.io/assets/2025/09/ai-coding-workflow.png)"
 categories:
-  - ai
-  - development
+  - ai-frameworks
+  - ai-methodologies
+  - ai-development-tools
+  - productivity
   - workflow
 tags:
+  - ai
+  - artificial-intelligence
+  - agentic-ai
+  - autonomous-agents
+  - workflow-engineering
+  - development-workflow
   - agent-os
-  - ai-development
   - claude-code
   - cursor
   - spec-driven-development
-  - builder-methods
   - context-engineering
+  - builder-methods
 ---
 
 ## TL;DR

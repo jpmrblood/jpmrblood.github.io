@@ -26,8 +26,11 @@ header:
 ---
 
 **TL;DR**:
-
-**TBD**
+- Create detailed PRD first, establish strict constitution with TDD principles
+- Combine OpenCode CLI for planning with Qwen Code CLI for implementation
+- Always verify AI follows constitution - stop and restart if needed
+- Create boilerplate baseline manually before using Spec Kit to avoid token waste
+- Use Context7 MCP for documentation and enforce conventional commits
 
 ## Fixing Problem
 

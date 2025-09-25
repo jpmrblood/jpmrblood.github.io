@@ -34,14 +34,6 @@ MCP Memory Service supports GPU acceleration via CUDA for improved performance, 
 
 **Note**: For optimized CPU-only compilation without CUDA dependencies, consider using my enhanced fork at [`jpmrblood/mcp-memory-service`](https://github.com/jpmrblood/mcp-memory-service), which includes dedicated CPU build profiles and Dockerfile.cpu support, with critically important pyproject.toml optimizations detailed below.
 
-**Key improvements vs original doobidoo/mcp-memory-service**:
-- **Added Dockerfile.cpu**: Docker container optimized for CPU-only deployments
-- **Added .specify/ directory**: Contains templates and scripts for project management:
-  - Bash scripts for development automation (check-prerequisites.sh, setup-plan.sh, create-new-feature.sh, update-agent-context.sh)
-  - Memory constitution file for project guidelines
-  - Templates for plans, specifications, tasks, and agent files
-- **Modified .gitignore**: Added .specify directory to ignore development templates
-
 ## pyproject.toml Changes (Most Important)
 
 The most critical improvement in the fork is the enhanced `pyproject.toml` configuration that enables true CPU-only installations:

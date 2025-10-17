@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "AI"
+    url: /ai-suka/
   - title: "About"
     url: /about/
   - title: "Slides"

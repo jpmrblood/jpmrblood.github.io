@@ -3,13 +3,19 @@ layout: single
 title: "Compiling Memory MCP Server Without CUDA"
 date: 2025-09-23
 tags:
-  - linux
+  - ai
+  - artificial-intelligence
   - mcp
-  - memory
+  - memory-systems
+  - infrastructure
+  - optimization
+  - linux
   - compilation
   - cpu-only
   - tutorial
 categories:
+  - ai-infrastructure
+  - ai-development-tools
   - linux
   - development
 excerpt: "A step-by-step guide to compiling and installing MCP Memory Service on CPU-only systems without CUDA support."

@@ -2,13 +2,22 @@
 layout: single
 title: A Comparative Analysis of n8n, LangChain, smol-agents, and Pocket Flow
 tags:
-  - pocketflow
-  - smolagents
-  - langchain
+  - ai
+  - artificial-intelligence
+  - ai-frameworks
+  - agentic-ai
+  - autonomous-agents
+  - workflow-engineering
   - n8n
+  - langchain
+  - smolagents
+  - pocketflow
   - comparison
+  - ai-research
 categories:
-  - notes
+  - ai-frameworks
+  - ai-research
+  - workflow
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"

@@ -2,14 +2,18 @@
 layout: single
 title: "Install Context7 MCP with Stdio Mode for Qwen Code CLI"
 tags:
+  - ai
+  - artificial-intelligence
+  - ai-development-tools
   - mcp
+  - memory-systems
   - context7
   - qwen
   - cli
   - stdio
 categories:
-  - tech
-  - ai
+  - ai-development-tools
+  - ai-infrastructure
   - tools
 excerpt: "How to install Context7 MCP with stdio mode and integrate it with Qwen Code CLI globally using settings.json configuration."
 header:

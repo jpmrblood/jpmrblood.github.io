@@ -2,15 +2,20 @@
 layout: single
 title: How to Make Effective Use of Subagents in Claude Code
 tags:
+  - ai
+  - artificial-intelligence
+  - ai-frameworks
+  - sub-agents
   - claude-code
-  - ai
-  - coding
-  - subagents
+  - workflow-engineering
+  - development-workflow
+  - context-engineering
   - productivity
+  - ai-development-tools
 categories:
-  - tech
-  - ai
-  - programming
+  - ai-frameworks
+  - ai-development-tools
+  - productivity
 excerpt: "Master Claude Code subagents with this comprehensive guide. Learn how to use specialized AI agents as researchers and planners for dramatically improved development workflows, reduced token consumption, and consistent high-quality results."
 header:
   overlay_color: "#000"
@@ -240,4 +245,3 @@ flowchart TD
 6. **Final complete web app (⑫)** delivered to user
 
 This hybrid approach combines the structure (who does what) with timeline (when things happen), providing a complete mental model for complex projects.
-

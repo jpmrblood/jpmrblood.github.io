@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Run Electron on Wayland
+title: Bun Sets Specific Platform on Install
 tags:
   - bun
 categories:
